@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brahmarshi Samaj Patrika 2027 — Next-Gen Matrimonial Directory</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: {
+              950: '#070A12',
+              900: '#0B0F19',
+              800: '#111827',
+              700: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Ambient Mesh Background */
+    .ambient-bg {
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 15% 5%, rgba(249, 115, 22, 0.08) 0px, transparent 45%),
+        radial-gradient(at 85% 10%, rgba(99, 102, 241, 0.08) 0px, transparent 45%),
+        radial-gradient(at 50% 90%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+    }
+    .dark .ambient-bg {
+      background-color: #070A12;
+      background-image: 
+        radial-gradient(at 15% 0%, rgba(249, 115, 22, 0.13) 0px, transparent 50%),
+        radial-gradient(at 85% 5%, rgba(99, 102, 241, 0.14) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.07) 0px, transparent 50%);
+    }
+
+    /* Glassmorphism Surface */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .dark .glass-panel {
+      background: rgba(17, 24, 39, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Bento Card Hover */
+    .bento-card {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+    }
+    .dark .bento-card:hover {
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(249, 115, 22, 0.15);
+      border-color: rgba(249, 115, 22, 0.35);
+    }
+    html:not(.dark) .bento-card:hover {
+      box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.08);
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.3);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(148, 163, 184, 0.5);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="ambient-bg text-slate-900 dark:text-slate-100 min-h-screen flex flex-col selection:bg-orange-500 selection:text-white antialiased transition-colors duration-200">
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
+    <div class="bg-slate-900 dark:bg-slate-800 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700/80">
+      <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+        <i data-lucide="check" class="w-4 h-4"></i>
+      </div>
+      <span id="toastMsg" class="text-sm font-medium">Action completed</span>
+    </div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="sticky top-0 z-30 glass-panel border-b border-slate-200/80 dark:border-white/[0.08]">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-3.5">
+        <div class="relative group">
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-indigo-500 rounded-2xl blur opacity-40 group-hover:opacity-75 transition"></div>
+          <div class="relative w-10 h-10 rounded-xl bg-slate-900 dark:bg-slate-950 border border-white/10 flex items-center justify-center text-orange-400 shadow-inner">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-display font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white">
+              Brahmarshi<span class="text-orange-500">DB</span>
+            </span>
+            <span class="px-2 py-0.5 text-[10px] font-mono font-semibold uppercase tracking-wider bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 rounded-md">
+              2027 Edition
+            </span>
+            <span class="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Patrika Verified
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
+            वार्षिक ब्रह्मर्षि समाज पत्रिका, पटना • Interactive Matrimonial Intelligence
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Action Bar -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        
+        <!-- Shortlist Drawer Trigger -->
+        <button onclick="toggleShortlistDrawer()" class="relative inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.05] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/[0.08] transition">
+          <i data-lucide="heart" class="w-4 h-4 text-rose-500 fill-rose-500/20"></i>
+          <span class="hidden sm:inline">Shortlist</span>
+          <span id="navShortlistCount" class="px-1.5 py-0.2 rounded-md text-[11px] font-mono font-bold bg-rose-500 text-white">0</span>
+        </button>
+
+        <!-- Add / Parse Bio Button -->
+        <button onclick="openAddModal()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.05] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/[0.08] transition" title="Add or Parse Raw Patrika Text">
+          <i data-lucide="plus" class="w-4 h-4 text-orange-500"></i>
+          <span class="hidden md:inline">Add / Parse Bio</span>
+        </button>
+
+        <!-- Export CSV -->
+        <button onclick="exportCSV()" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.05] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/[0.08] transition" title="Export Filtered CSV">
+          <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-500"></i>
+          <span class="hidden lg:inline">CSV</span>
+        </button>
+
+        <!-- Download HTML for GitHub -->
+        <button onclick="downloadStandaloneHTML()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white shadow-lg shadow-orange-500/20 transition">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Download for GitHub</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.05] dark:hover:bg-white/[0.1] text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/[0.08] transition" title="Toggle Dark/Light Mode">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Workspace -->
+  <main class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full space-y-6">
+
+    <!-- Interactive Bento KPI Analytics Strip -->
+    <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      
+      <!-- KPI 1: Total -->
+      <div onclick="resetAllFilters()" class="cursor-pointer group glass-panel rounded-2xl p-4 border border-slate-200/80 dark:border-white/[0.08] hover:border-orange-500/50 transition relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400">Total Directory</span>
+          <div class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/[0.05] flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:text-orange-400 transition">
+            <i data-lucide="database" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="statTotal" class="font-display text-2xl font-extrabold text-slate-900 dark:text-white">0</span>
+          <span class="text-[11px] text-slate-400">profiles</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1 truncate">Click to view all</p>
+      </div>
+
+      <!-- KPI 2: Govt / UPSC / PSU -->
+      <div onclick="setQuickPreset('GOVT_ALL')" class="cursor-pointer group glass-panel rounded-2xl p-4 border border-slate-200/80 dark:border-white/[0.08] hover:border-emerald-500/50 transition relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Govt / IAS / PSU</span>
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+            <i data-lucide="landmark" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="statGovt" class="font-display text-2xl font-extrabold text-slate-900 dark:text-white">0</span>
+          <span class="text-[11px] text-emerald-500 font-medium">officers</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1 truncate">IAS, IPS, IRS, RBI, Rail</p>
+      </div>
+
+      <!-- KPI 3: High Package 25+ LPA -->
+      <div onclick="setQuickPreset('HIGH_PKG')" class="cursor-pointer group glass-panel rounded-2xl p-4 border border-slate-200/80 dark:border-white/[0.08] hover:border-indigo-500/50 transition relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">25+ LPA & 1Cr+</span>
+          <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-500">
+            <i data-lucide="Gems" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="statHighPkg" class="font-display text-2xl font-extrabold text-slate-900 dark:text-white">0</span>
+          <span class="text-[11px] text-indigo-400 font-mono">Up to 4Cr</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1 truncate">Google, Meta, Microsoft, US</p>
+      </div>
+
+      <!-- KPI 4: Premier Institutes -->
+      <div onclick="setQuickPreset('IIT_NIT')" class="cursor-pointer group glass-panel rounded-2xl p-4 border border-slate-200/80 dark:border-white/[0.08] hover:border-amber-500/50 transition relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">IIT / IIM / BITS</span>
+          <div class="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-500">
+            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="statPremier" class="font-display text-2xl font-extrabold text-slate-900 dark:text-white">0</span>
+          <span class="text-[11px] text-amber-500 font-medium">alumni</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1 truncate">Tier-1 Engineering & MBA</p>
+      </div>
+
+      <!-- KPI 5: Doctors & Specialists -->
+      <div onclick="setQuickPreset('DOCTORS')" class="cursor-pointer group glass-panel rounded-2xl p-4 border border-slate-200/80 dark:border-white/[0.08] hover:border-cyan-500/50 transition relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">Doctors / Med</span>
+          <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-500">
+            <i data-lucide="stethoscope" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="statDoctors" class="font-display text-2xl font-extrabold text-slate-900 dark:text-white">0</span>
+          <span class="text-[11px] text-cyan-500 font-medium">MBBS/MD</span>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-1 truncate">AIIMS, PMCH, Armed Forces</p>
+      </div>
+
+      <!-- KPI 6: Active Matches -->
+      <div class="glass-panel rounded-2xl p-4 border border-orange-500/30 bg-gradient-to-br from-orange-500/[0.08] to-transparent relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-[11px] font-semibold uppercase tracking-wider text-orange-500">Active Matches</span>
+          <div class="w-8 h-8 rounded-lg bg-orange-500 text-white flex items-center justify-center shadow-md shadow-orange-500/20">
+            <i data-lucide="SlidersHorizontal" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-2">
+          <span id="statShowing" class="font-display text-2xl font-extrabold text-orange-600 dark:text-orange-400">0</span>
+          <span class="text-[11px] text-slate-400">filtered</span>
+        </div>
+        <p id="activeFilterLabel" class="text-[11px] text-orange-500/80 mt-1 truncate">Showing all profiles</p>
+      </div>
+
+    </section>
+
+    <!-- Command-Center Filter Panel -->
+    <section class="glass-panel rounded-3xl border border-slate-200/90 dark:border-white/[0.08] p-4 sm:p-5 shadow-xl shadow-slate-900/[0.03] dark:shadow-black/40 space-y-4">
+      
+      <!-- Row 1: Instant Search + Sector Segmented Pills -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-3.5 items-center">
+        
+        <!-- Command Search Input -->
+        <div class="lg:col-span-5 relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search name, IIT/AIIMS, Google, IAS, Gotra, Patna, phone..."
+            class="w-full pl-11 pr-20 py-2.5 bg-slate-100/80 dark:bg-obsidian-950/80 border border-slate-200 dark:border-white/[0.08] rounded-2xl text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500/60 focus:border-orange-500 transition"
+            oninput="applyFilters()"
+          />
+          <div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <kbd class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono font-semibold text-slate-400 bg-white dark:bg-white/[0.05] border border-slate-200 dark:border-white/[0.08] rounded-md">/</kbd>
+          </div>
+        </div>
+
+        <!-- Job Sector Segmented Bar -->
+        <div class="lg:col-span-7 flex flex-wrap items-center gap-1 bg-slate-100 dark:bg-obsidian-950/90 p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/[0.06]">
+          <button onclick="setSectorFilter('ALL')" data-sector="ALL" class="sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs">
+            All Sectors
+          </button>
+          <button onclick="setSectorFilter('Government')" data-sector="Government" class="sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Govt / PSU
+          </button>
+          <button onclick="setSectorFilter('Private')" data-sector="Private" class="sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-indigo-500"></span> Private / MNC
+          </button>
+          <button onclick="setSectorFilter('Abroad')" data-sector="Abroad" class="sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-purple-500"></span> Abroad / NRI
+          </button>
+          <button onclick="setSectorFilter('Business')" data-sector="Business" class="sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span> Business / Law
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Row 2: Horizontal Category Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 border-y border-slate-200/60 dark:border-white/[0.06]">
+        <button onclick="setCategoryPill('ALL')" data-cat="ALL" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-orange-500 text-white shadow-sm shadow-orange-500/30">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i> All Categories
+        </button>
+        <button onclick="setCategoryPill('Administrative Services')" data-cat="Administrative Services" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          🏛️ IAS / IPS / Admin
+        </button>
+        <button onclick="setCategoryPill('Engineering & Tech')" data-cat="Engineering & Tech" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          💻 Engineering & Tech
+        </button>
+        <button onclick="setCategoryPill('Medical Services')" data-cat="Medical Services" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          🩺 Doctors & Medical
+        </button>
+        <button onclick="setCategoryPill('Bank Services')" data-cat="Bank Services" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          🏦 Banking / RBI / SEBI
+        </button>
+        <button onclick="setCategoryPill('MBA / MCA / CA')" data-cat="MBA / MCA / CA" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          📊 MBA / CA / Finance
+        </button>
+        <button onclick="setCategoryPill('Law Services')" data-cat="Law Services" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          ⚖️ Law & Judiciary
+        </button>
+        <button onclick="setCategoryPill('Defence Services')" data-cat="Defence Services" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          🛡️ Defence & Aviation
+        </button>
+        <button onclick="setCategoryPill('General Services')" data-cat="General Services" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          🎓 Academia & General
+        </button>
+        <button onclick="setCategoryPill('Special Categories')" data-cat="Special Categories" class="cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]">
+          🤝 Remarriage / Divyang
+        </button>
+      </div>
+
+      <!-- Row 3: Precision Dropdowns & View Switcher -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-end">
+        
+        <!-- Minimum Package Filter -->
+        <div class="lg:col-span-3">
+          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Package Bracket</label>
+          <select id="packageFilter" onchange="applyFilters()" class="w-full px-3 py-2 bg-slate-100/90 dark:bg-obsidian-950/90 border border-slate-200 dark:border-white/[0.08] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <option value="ALL">All Packages (Incl. Govt Scale)</option>
+            <option value="ANY_PKG">Explicitly Disclosed Packages Only</option>
+            <option value="10">₹10+ LPA & Above</option>
+            <option value="20">₹20+ LPA & Above</option>
+            <option value="35">₹35+ LPA & Above</option>
+            <option value="50">₹50+ LPA & Above</option>
+            <option value="100">₹1.00 Crore+ (100+ LPA)</option>
+          </select>
+        </div>
+
+        <!-- Gotra Filter -->
+        <div class="lg:col-span-3">
+          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Gotra (गोत्र)</label>
+          <select id="gotraFilter" onchange="applyFilters()" class="w-full px-3 py-2 bg-slate-100/90 dark:bg-obsidian-950/90 border border-slate-200 dark:border-white/[0.08] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <option value="ALL">All Gotras</option>
+          </select>
+        </div>
+
+        <!-- Native / Work Location Filter -->
+        <div class="lg:col-span-3">
+          <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Native / Work Hub</label>
+          <select id="locationFilter" onchange="applyFilters()" class="w-full px-3 py-2 bg-slate-100/90 dark:bg-obsidian-950/90 border border-slate-200 dark:border-white/[0.08] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            <option value="ALL">All Regions & Cities</option>
+            <option value="Patna">Patna / Danapur / Bihta / Mokama</option>
+            <option value="Muzaffarpur">Muzaffarpur</option>
+            <option value="Gaya">Gaya</option>
+            <option value="Jehanabad">Jehanabad / Arwal</option>
+            <option value="Nawada">Nawada / Nalanda</option>
+            <option value="Samastipur">Samastipur / Begusarai</option>
+            <option value="Bhojpur">Ara / Bhojpur / Buxar</option>
+            <option value="Sitamarhi">Sitamarhi / Madhubani / Darbhanga</option>
+            <option value="Siwan">Siwan / Saran / Chhapra</option>
+            <option value="Bangalore">Bengaluru / Hyderabad (Tech Hub)</option>
+            <option value="Delhi">Delhi NCR / Noida / Gurgaon</option>
+            <option value="Mumbai">Mumbai / Pune</option>
+            <option value="USA">International (USA / UK / Europe)</option>
+          </select>
+        </div>
+
+        <!-- Sort & Layout Toggle -->
+        <div class="lg:col-span-3 flex items-center gap-2">
+          <div class="flex-1">
+            <label class="block text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-1">Sort Order</label>
+            <select id="sortSelect" onchange="applyFilters()" class="w-full px-3 py-2 bg-slate-100/90 dark:bg-obsidian-950/90 border border-slate-200 dark:border-white/[0.08] rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500">
+              <option value="default">Patrika Serial Order</option>
+              <option value="pkg_desc">💰 Package: High to Low</option>
+              <option value="youngest">🎂 Age: Youngest First</option>
+              <option value="tallest">📏 Height: Tallest First</option>
+              <option value="name_asc">🔤 Name: A to Z</option>
+            </select>
+          </div>
+
+          <div class="pt-4 flex items-center gap-1">
+            <div class="flex bg-slate-100 dark:bg-obsidian-950 p-1 rounded-xl border border-slate-200 dark:border-white/[0.08]">
+              <button id="gridViewBtn" onclick="setViewMode('grid')" class="p-1.5 rounded-lg bg-white dark:bg-slate-800 text-orange-500 shadow-xs transition" title="Bento Grid View">
+                <i data-lucide="layout-grid" class="w-4 h-4"></i>
+              </button>
+              <button id="tableViewBtn" onclick="setViewMode('table')" class="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white transition" title="High-Density Table View">
+                <i data-lucide="table-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <button onclick="resetAllFilters()" class="p-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-500 border border-rose-500/20 transition" title="Reset All Filters">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Bento Grid Container -->
+    <div id="gridContainer" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Sleek Data Table Container -->
+    <div id="tableContainer" class="hidden glass-panel rounded-3xl border border-slate-200/80 dark:border-white/[0.08] overflow-hidden shadow-xl">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200/80 dark:border-white/[0.08] bg-slate-100/60 dark:bg-obsidian-950/60 text-[11px] font-mono uppercase tracking-wider text-slate-400">
+              <th class="py-3.5 px-4">ID & Candidate</th>
+              <th class="py-3.5 px-4">Sector & Role</th>
+              <th class="py-3.5 px-4">Education</th>
+              <th class="py-3.5 px-4">Package</th>
+              <th class="py-3.5 px-4">Gotra • DOB • Ht</th>
+              <th class="py-3.5 px-4">Family & Location</th>
+              <th class="py-3.5 px-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="divide-y divide-slate-200/60 dark:divide-white/[0.06] text-sm">
+            <!-- Populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden glass-panel rounded-3xl border border-slate-200/80 dark:border-white/[0.08] p-14 text-center my-8">
+      <div class="w-16 h-16 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-500 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="search-x" class="w-8 h-8"></i>
+      </div>
+      <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">No matching profiles found</h3>
+      <p class="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto mt-1.5">
+        No candidates matched your current filter combination. Try broadening your package bracket or resetting filters.
+      </p>
+      <button onclick="resetAllFilters()" class="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold shadow-lg shadow-orange-500/25 transition">
+        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Reset All Filters
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Shortlist Slide-Over Drawer -->
+  <div id="shortlistDrawer" class="fixed inset-0 z-50 hidden">
+    <div onclick="toggleShortlistDrawer()" class="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"></div>
+    <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white dark:bg-obsidian-900 border-l border-slate-200 dark:border-white/[0.08] shadow-2xl flex flex-col z-10">
+      <div class="p-5 border-b border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center">
+            <i data-lucide="heart" class="w-4 h-4 fill-rose-500"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Shortlisted Profiles</h3>
+            <p class="text-xs text-slate-400">Saved in your browser for quick comparison</p>
+          </div>
+        </div>
+        <button onclick="toggleShortlistDrawer()" class="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.05]">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div id="shortlistContainer" class="p-5 flex-1 overflow-y-auto space-y-3">
+        <!-- Populated by JS -->
+      </div>
+      <div class="p-4 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50 dark:bg-obsidian-950/60 flex items-center justify-between gap-2">
+        <button onclick="clearShortlist()" class="text-xs font-semibold text-rose-500 hover:underline px-2 py-1">
+          Clear All
+        </button>
+        <button onclick="filterByShortlist()" class="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold transition">
+          Show Only Shortlisted in Grid
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Detail Modal -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white dark:bg-obsidian-900 rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-200 dark:border-white/[0.1] overflow-hidden my-8">
+      
+      <!-- Modal Top Banner -->
+      <div class="relative bg-gradient-to-br from-slate-900 via-obsidian-900 to-indigo-950 text-white p-6 sm:p-7 border-b border-white/10">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div id="modalBadges" class="flex flex-wrap items-center gap-2 mb-3"></div>
+            <h2 id="modalName" class="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-white">Candidate Name</h2>
+            <p id="modalRole" class="text-orange-400 text-sm sm:text-base font-semibold mt-1"></p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="modalShortlistBtn" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white transition" title="Shortlist Profile">
+              <i data-lucide="heart" class="w-5 h-5"></i>
+            </button>
+            <button onclick="closeDetailModal()" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition">
+              <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-7 space-y-6 max-h-[75vh] overflow-y-auto">
+        
+        <!-- 4-Column Bento Key Specs -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.06]">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">Package / Scale</span>
+            <span id="modalPkg" class="font-mono text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-1 block">—</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.06]">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">Gotra (गोत्र)</span>
+            <span id="modalGotra" class="text-sm font-bold text-slate-900 dark:text-white mt-1 block">—</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.06]">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">DOB / Age</span>
+            <span id="modalDob" class="font-mono text-sm font-bold text-slate-900 dark:text-white mt-1 block">—</span>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/[0.06]">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block">Height</span>
+            <span id="modalHeight" class="font-mono text-sm font-bold text-slate-900 dark:text-white mt-1 block">—</span>
+          </div>
+        </div>
+
+        <!-- Structured Details -->
+        <div class="space-y-3 text-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-3 py-2.5 border-b border-slate-200/60 dark:border-white/[0.06] gap-1">
+            <span class="font-semibold text-slate-400">Qualifications:</span>
+            <span id="modalEdu" class="sm:col-span-2 font-medium text-slate-900 dark:text-slate-100"></span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 py-2.5 border-b border-slate-200/60 dark:border-white/[0.06] gap-1">
+            <span class="font-semibold text-slate-400">Career & Posting:</span>
+            <span id="modalJob" class="sm:col-span-2 font-medium text-slate-900 dark:text-slate-100"></span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 py-2.5 border-b border-slate-200/60 dark:border-white/[0.06] gap-1">
+            <span class="font-semibold text-slate-400">Family Background:</span>
+            <span id="modalFather" class="sm:col-span-2 font-medium text-slate-900 dark:text-slate-100"></span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 py-2.5 border-b border-slate-200/60 dark:border-white/[0.06] gap-1">
+            <span class="font-semibold text-slate-400">Native & Residence:</span>
+            <span id="modalLocation" class="sm:col-span-2 font-medium text-slate-900 dark:text-slate-100"></span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 py-2.5 gap-2 items-center">
+            <span class="font-semibold text-slate-400">Direct Connect:</span>
+            <div id="modalPhones" class="sm:col-span-2 flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+
+        <!-- Verbatim Patrika Bio Box -->
+        <div class="rounded-2xl bg-orange-500/[0.06] border border-orange-500/20 p-4">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-orange-500 flex items-center gap-1.5">
+              <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Complete Patrika Biodata Record
+            </span>
+          </div>
+          <p id="modalRaw" class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-mono"></p>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-slate-50 dark:bg-obsidian-950/80 border-t border-slate-200 dark:border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
+        <button id="modalCopyBtn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold hover:opacity-90 transition">
+          <i data-lucide="copy" class="w-4 h-4"></i>
+          <span>Copy Biodata</span>
+        </button>
+        <button onclick="closeDetailModal()" class="px-4 py-2.5 rounded-xl border border-slate-300 dark:border-white/10 text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-white/[0.05] transition">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Add / Smart Parse Profile Modal -->
+  <div id="addModal" class="fixed inset-0 z-50 hidden bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white dark:bg-obsidian-900 rounded-3xl max-w-xl w-full shadow-2xl border border-slate-200 dark:border-white/[0.1] overflow-hidden my-8">
+      <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <i data-lucide="sparkles" class="w-5 h-5 text-orange-400"></i>
+          <h3 class="font-display font-bold text-base">Add or Auto-Parse Patrika Entry</h3>
+        </div>
+        <button onclick="closeAddModal()" class="text-slate-400 hover:text-white">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4 max-h-[80vh] overflow-y-auto text-sm">
+        <!-- Smart Raw Text Parser Box -->
+        <div class="p-3.5 rounded-2xl bg-indigo-500/[0.07] border border-indigo-500/20 space-y-2">
+          <label class="block text-xs font-bold text-indigo-500 dark:text-indigo-400">⚡ Smart Patrika Text Auto-Parser (Optional)</label>
+          <textarea id="rawPasteInput" rows="2" placeholder="Paste raw line from PDF (e.g., '21. Navneet Kr. B.Tech (CSE) BITS Hyderabad Job S.W. Engineer Bangalore, Pkg- 50 LPA, DOB- 1.8.97, Ht-5'11, Gotra- Shandilya, Mob. 7870706851')" class="w-full p-2.5 rounded-xl bg-white dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+          <button type="button" onclick="parseRawBioText()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition">
+            Auto-Fill Fields from Text
+          </button>
+        </div>
+
+        <form id="addProfileForm" onsubmit="handleAddProfile(event)" class="space-y-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Candidate Name *</label>
+              <input type="text" id="new_name" required placeholder="e.g. Rituraj Ravi" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Sector *</label>
+              <select id="new_sector" required class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs">
+                <option value="Private">Private / MNC</option>
+                <option value="Government">Government / PSU</option>
+                <option value="Abroad">Abroad / NRI</option>
+                <option value="Business">Business / Self-Employed</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Category *</label>
+              <select id="new_category" required class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs">
+                <option value="Engineering & Tech">Engineering & Tech</option>
+                <option value="Administrative Services">Administrative Services</option>
+                <option value="Medical Services">Medical Services</option>
+                <option value="Bank Services">Bank Services</option>
+                <option value="MBA / MCA / CA">MBA / MCA / CA</option>
+                <option value="Law Services">Law Services</option>
+                <option value="Defence Services">Defence Services</option>
+                <option value="General Services">General Services</option>
+                <option value="Special Categories">Special Categories</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Package (Numeric LPA)</label>
+              <input type="number" step="0.1" id="new_pkg" placeholder="e.g. 45" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Education *</label>
+              <input type="text" id="new_edu" required placeholder="e.g. B.Tech (IIT Kanpur)" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Role & Organization *</label>
+              <input type="text" id="new_job" required placeholder="e.g. SDE at Microsoft Bangalore" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Gotra *</label>
+              <input type="text" id="new_gotra" required placeholder="e.g. Shandilya / Kashyap / Vats" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">DOB / Year</label>
+                <input type="text" id="new_dob" placeholder="e.g. Nov 1997" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Height</label>
+                <input type="text" id="new_ht" placeholder="e.g. 6'0&quot;" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Father & Family</label>
+              <input type="text" id="new_father" placeholder="e.g. S/o Sri R.K. Sharma" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Native & Residence *</label>
+              <input type="text" id="new_loc" required placeholder="e.g. Native Muzaffarpur, Res Patna" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-[11px] font-mono uppercase text-slate-400 mb-1">Contact Mobile(s) *</label>
+            <input type="text" id="new_phone" required placeholder="e.g. 9876543210, 9123456789" class="w-full px-3 py-2 bg-slate-50 dark:bg-obsidian-950 border border-slate-200 dark:border-white/10 rounded-xl text-xs" />
+          </div>
+
+          <div class="flex items-center justify-end gap-2 pt-3 border-t border-slate-200 dark:border-white/10">
+            <button type="button" onclick="closeAddModal()" class="px-4 py-2 rounded-xl border border-slate-300 dark:border-white/10 text-xs font-semibold">Cancel</button>
+            <button type="submit" class="px-5 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold shadow-lg shadow-orange-500/25">Save to Directory</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimalist SaaS Footer -->
+  <footer class="border-t border-slate-200/80 dark:border-white/[0.06] mt-16 py-8">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+        <span class="font-semibold text-slate-700 dark:text-slate-200">Brahmarshi Samaj Patrika 2027</span>
+        <span>— Published by Brahmarshi Samaj, Patna (Er. Dhananjay Pd. Sharma)</span>
+      </div>
+      <div class="font-mono text-[11px]">
+        Single-File Static DB • Ready for GitHub Pages
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Script & Embedded Patrika 2027 Database -->
+  <script>
+    const INITIAL_PROFILES = [
+      // ================= 1. ADMINISTRATIVE SERVICES =================
+      { id: "ADM-01", name: "Satyam Gandhi", category: "Administrative Services", sector: "Government", edu: "B.A. Pol. Science Hons. (DU)", job: "IAS Officer (Maharashtra Cadre)", pkgLpa: null, pkgText: "IAS Pay Scale", gotra: "Sawarn", dob: "July 1999", birthYear: 1999, ht: "5'1\"", father: "S/o Sri Akhilesh Kr. Rai", location: "Dighra Pusa, Samastipur, Bihar", phones: ["9973576494", "8250201299"] },
+      { id: "ADM-02", name: "Rituraj Ravi", category: "Administrative Services", sector: "Government", edu: "B.E. (IIT)", job: "IPS Officer, SSP Meghalaya", pkgLpa: null, pkgText: "IPS Pay Scale", gotra: "Shandilya", dob: "1994", birthYear: 1994, ht: "6'0\"", father: "S/o Sri Ram Binod Sharma, SDO, WRD", location: "Silaut Basudeo, Mahmadpur, Muzaffarpur", phones: ["9934262947", "9113467105"] },
+      { id: "ADM-03", name: "Ayush Venkat Vats", category: "Administrative Services", sector: "Government", edu: "B.E. Mech (DTU, Delhi)", job: "IAS Officer (Tamil Nadu Cadre)", pkgLpa: null, pkgText: "IAS Pay Scale", gotra: "Vats", dob: "May 1999", birthYear: 1999, ht: "5'10\"", father: "S/o Sri Tarun Kumar, Rtd. BEO", location: "Belar, Kashichak, Nawada / Deoghar", phones: ["8986625603", "9113340354"] },
+      { id: "ADM-04", name: "Shishir Kumar", category: "Administrative Services", sector: "Government", edu: "B.E. Petroleum (IIT Dhanbad)", job: "IAS Officer, Posted at Aligarh", pkgLpa: null, pkgText: "IAS Pay Scale", gotra: "Bhardwaj", dob: "Sep 1995", birthYear: 1995, ht: "5'10\"", father: "S/o Sri Singheshwar Singh (Cachet Pharma)", location: "Balia, Banpura, Siwan", phones: ["7905376411", "9450777614"] },
+      { id: "ADM-05", name: "Amit Sreenath", category: "Administrative Services", sector: "Government", edu: "B.Com (Venkateshwar College, DU)", job: "IFS Officer (2016), First Secretary (JAG), Yangon, Myanmar", pkgLpa: null, pkgText: "IFS Foreign Scale", gotra: "Parashar", dob: "July 1992", birthYear: 1992, ht: "5'9\"", father: "S/o Sri Ranjan Kumar, AAO, Defence Accounts", location: "Delhi / Siwan", phones: ["9971360434"] },
+      { id: "ADM-06", name: "Vaibhav Kumar", category: "Administrative Services", sector: "Government", edu: "B.E. Math & Computing (DTU)", job: "UPSC IFS Officer", pkgLpa: null, pkgText: "IFS Pay Scale", gotra: "Shandilya", dob: "Nov 1997", birthYear: 1997, ht: "5'10\"", father: "S/o Sri Viresh Kumar, DGM, Coal India", location: "Birampur, Harnaut, Nalanda", phones: ["9511710126", "9434331656"] },
+      { id: "ADM-07", name: "Anant Dhanraj Singh", category: "Administrative Services", sector: "Government", edu: "BA, LLB, LLM (Delhi Law Campus)", job: "IPS Officer, Delhi", pkgLpa: null, pkgText: "IPS Pay Scale", gotra: "Vats", dob: "1998", birthYear: 1998, ht: "6'2\"", father: "S/o Sri Dhiraj Kumar, IPS, Delhi", location: "Sahpur, Danapur, Patna / Delhi", phones: ["9899678273", "9811861715"] },
+      { id: "ADM-08", name: "Apoorva Kumar", category: "Administrative Services", sector: "Government", edu: "B.E. Math & Computing (IIT Kanpur)", job: "IRS Officer (C & IT)", pkgLpa: null, pkgText: "IRS Pay Scale", gotra: "Bhardwaj", dob: "March 1997", birthYear: 1997, ht: "5'9\"", father: "S/o Late Om Narayan Sharma", location: "Bhikhanpur, Amarpur, Banka", phones: ["6299041008"] },
+      { id: "ADM-09", name: "Ankur Kumar", category: "Administrative Services", sector: "Government", edu: "B.E. Civil (BIT Sindri)", job: "IRS Officer (Income Tax)", pkgLpa: null, pkgText: "IRS Pay Scale", gotra: "Kaundilya", dob: "Feb 1995", birthYear: 1995, ht: "5'9\"", father: "S/o Sri Ramsarnagat Singh, Coal India, Dhanbad", location: "Tara Jibar, Aurai, Muzaffarpur / Dhanbad", phones: ["9470597108"] },
+      { id: "ADM-10", name: "Yash Kumar", category: "Administrative Services", sector: "Government", edu: "B.Sc. Hons. (St. Xavier College, Kolkata)", job: "IRS Officer (C & IT)", pkgLpa: null, pkgText: "IRS Pay Scale", gotra: "Sawarn", dob: "Oct 2001", birthYear: 2001, ht: "5'10\"", father: "S/o Sri Sanjay Kumar, DSP, WB Police, Kolkata", location: "Dumri, Simri, Buxar / Kolkata", phones: ["9064458332"] },
+      { id: "ADM-11", name: "Anubhav", category: "Administrative Services", sector: "Government", edu: "B.E. Civil (IIT Delhi)", job: "IRS Officer (Income Tax)", pkgLpa: null, pkgText: "IRS Pay Scale", gotra: "Shandilya", dob: "Sep 1997", birthYear: 1997, ht: "5'10\"", father: "S/o Sri Ranjeet Kumar, HM, Middle School", location: "Kako, Jehanabad, Aaiyara", phones: ["8709370926", "9431084920"] },
+      { id: "ADM-12", name: "Kumar Aniket", category: "Administrative Services", sector: "Government", edu: "B.E. Material Science (IIT Kanpur)", job: "IRS Officer", pkgLpa: null, pkgText: "IRS Pay Scale", gotra: "Sawarn", dob: "Nov 1994", birthYear: 1994, ht: "5'9\"", father: "S/o Sri Sunil Kumar", location: "Rehula, Atri, Gaya / Patna", phones: ["9431054132", "7667514605"] },
+      { id: "ADM-13", name: "Kumar Abhinav", category: "Administrative Services", sector: "Government", edu: "BA, LLB (Delhi University)", job: "DSP in Ministry of Home Affairs (MHA), Delhi", pkgLpa: null, pkgText: "MHA DSP Scale", gotra: "Bhardwaj", dob: "Jan 1992", birthYear: 1992, ht: "5'10\"", father: "S/o Dr. R.P. Singh", location: "Begusarai / Delhi", phones: ["9123232456"] },
+      { id: "ADM-14", name: "Randhir Kumar", category: "Administrative Services", sector: "Government", edu: "B.E. Civil (NIT Patna)", job: "Assistant Settlement Officer, Nalanda (Bihar Govt)", pkgLpa: null, pkgText: "Bihar Govt Scale", gotra: "Vats", dob: "March 1995", birthYear: 1995, ht: "5'9\"", father: "S/o Sri Harishankar Singh, Govt. Teacher", location: "Ashma, Pakri Barawan, Nawada", phones: ["6203548504", "8757039436"] },
+      { id: "ADM-15", name: "Ashutosh", category: "Administrative Services", sector: "Government", edu: "B.E. Civil (Ramaiah Inst. of Tech, Bangalore)", job: "Sub Registrar, Babubarhi, Madhubani (Bihar Govt)", pkgLpa: null, pkgText: "Sub-Registrar Scale", gotra: "Shandilya", dob: "Oct 1998", birthYear: 1998, ht: "5'9\"", father: "S/o Sri Arvind Kumar, Rtd. Joint Labour Commissioner", location: "Rajbanshi Nagar, Patna / Janipur, Sitamarhi", phones: ["9835437473", "7992307411"] },
+      { id: "ADM-16", name: "Parth Sarthi", category: "Administrative Services", sector: "Government", edu: "Graduate", job: "M.V.I. Aurangabad & Arwal (R.T.O. Officer, Bihar Transport Dept)", pkgLpa: null, pkgText: "Bihar RTO Scale", gotra: "Kashyap", dob: "1995", birthYear: 1995, ht: "6'2\"", father: "S/o U.S. Singh", location: "Boring Road, Patna", phones: ["9262521111", "9835804841"] },
+      { id: "ADM-17", name: "Ambikesh Sharma", category: "Administrative Services", sector: "Abroad", edu: "Master in Public Administration (UCL London)", job: "Sr. Manager, NHS Hounslow Council, London, U.K.", pkgLpa: 38, pkgText: "£35,000 P.A. (UK)", gotra: "Kaundilya", dob: "16.03.1996", birthYear: 1996, ht: "5'8\"", father: "S/o A.K. Sharma, Asst. Registrar IGNOU, Bhopal", location: "London, UK / Bhopal / Meerut", phones: ["9810567685"] },
+      { id: "ADM-18", name: "Pankaj Kr.", category: "Administrative Services", sector: "Government", edu: "B.Tech Chemical (BITS Pilani)", job: "Assistant Administrative Officer (AAO), Pune", pkgLpa: null, pkgText: "Govt AAO Scale", gotra: "Kaundilya", dob: "05.10.1997", birthYear: 1997, ht: "5'8\"", father: "S/o Nagendra Kr., Rtd. BEO", location: "Naubatpur, Patna / Faridabad / Pune", phones: ["9430603688"] },
+      { id: "ADM-19", name: "Amulya Sidharth", category: "Administrative Services", sector: "Government", edu: "B.Tech (C.Sc.) Delhi", job: "Selected as D.S.P. (70th BPSC), Ex-Executive Officer Bihar", pkgLpa: null, pkgText: "BPSC DSP Scale", gotra: "Shandilya", dob: "23.07.1994", birthYear: 1994, ht: "6'0\"", father: "S/o Sri Asheshwar Sharma, Civil Engineer", location: "Bihta, Patna", phones: ["9905027845"] },
+
+      // ================= 2. BANK SERVICES =================
+      { id: "BNK-01", name: "Suman Saurabh", category: "Bank Services", sector: "Private", edu: "B.Tech (Electrical Engg.) W.B.", job: "Sr. Relationship Manager, PNB MetLife", pkgLpa: 12, pkgText: "₹12.00 LPA", gotra: "Parashar", dob: "15.11.1994", birthYear: 1994, ht: "5'9\"", father: "S/o Late Sri Niwash Sharma (Pharma Business)", location: "Belaganj, Gaya, Bihar", phones: ["6206931891", "6202100564"] },
+      { id: "BNK-02", name: "Saurabh Kr.", category: "Bank Services", sector: "Government", edu: "B.Tech (Mech.) Greater Noida", job: "Associate in State Bank of India (SBI), Samastipur", pkgLpa: null, pkgText: "SBI Scale", gotra: "Sawarn", dob: "10.11.1997", birthYear: 1997, ht: "5'5\"", father: "S/o Heera Kr.", location: "Res: Khemnichak, Patna / Native: Nawada", phones: ["9308928511"] },
+      { id: "BNK-03", name: "Rahul Kr.", category: "Bank Services", sector: "Government", edu: "Graduate", job: "Probationary Officer (P.O.), Central Bank of India", pkgLpa: null, pkgText: "PSU Bank PO", gotra: "Kaushik", dob: "10.12.1995", birthYear: 1995, ht: "5'11\"", father: "S/o Kaushlendra Sharma", location: "Jehanabad, Bihar", phones: ["9334670014"] },
+      { id: "BNK-04", name: "Rajashri Nimay", category: "Bank Services", sector: "Private", edu: "MBA (Finance)", job: "Sr. Manager (Forex Business), ICICI Bank, Kolkata", pkgLpa: 28, pkgText: "₹28.00 LPA", gotra: "Shandilya", dob: "25.10.1996", birthYear: 1996, ht: "6'1\"", father: "S/o Sri Narendra Kr., G.M. Reliance Jio & Dr. Richa Chaudhary", location: "Res: Purnea / Katihar, Native: Jehanabad", phones: ["7004001034"] },
+      { id: "BNK-05", name: "Kumar Satyam", category: "Bank Services", sector: "Government", edu: "B.Tech (Computer Science)", job: "Specialist Officer (S.O.) in PNB, Parliament Street, Delhi", pkgLpa: 15, pkgText: "₹15.00 LPA", gotra: "Shandilya", dob: "10.08.2002", birthYear: 2002, ht: "6'0\"", father: "S/o Sri P.K. Tiwari, Advocate Civil Court Ara", location: "Maulabagh, Ara, Bhojpur / Delhi", phones: ["8677859704"] },
+      { id: "BNK-06", name: "Rishav Anand", category: "Bank Services", sector: "Private", edu: "BA (Eco) Hons, MBA Finance (Manipal Univ)", job: "Deputy Manager, Axis Bank, New Delhi", pkgLpa: 6, pkgText: "₹6.00 LPA", gotra: "Vats", dob: "19.08.1997", birthYear: 1997, ht: "5'6\"", father: "S/o Ajit Kr. Sharma", location: "Sitamarhi / New Delhi", phones: ["9206507155", "9430808851"] },
+      { id: "BNK-08", name: "Aman Kumar", category: "Bank Services", sector: "Private", edu: "MBA (Pune)", job: "Officer, Federal Bank, Mumbai", pkgLpa: null, pkgText: "Bank Officer Scale", gotra: "Vats", dob: "23.09.2000", birthYear: 2000, ht: "5'11\"", father: "S/o Sri Manoj Kumar, Deputy Commandant R.S.F.", location: "Beur, Patna / Mumbai", phones: ["8789993286", "9835095854"] },
+      { id: "BNK-10", name: "Ujjwal Shahi", category: "Bank Services", sector: "Government", edu: "B.Tech (Cochin Univ, Kerala)", job: "Probationary Officer (P.O.), Bihar Gramin Bank, Hajipur", pkgLpa: null, pkgText: "Bank PO Scale", gotra: "Vats", dob: "1994", birthYear: 1994, ht: "5'10\"", father: "S/o Sri Ashok Shahi, Rtd. Accountant WRD", location: "Anisabad, Patna / Native: Siwan", phones: ["6201045850", "6204863066"] },
+      { id: "BNK-11", name: "Amit Kr.", category: "Bank Services", sector: "Private", edu: "B.Tech Production Engg. (NIT Patna)", job: "Branch Head & Asst. Manager, Federal Bank, Gujarat", pkgLpa: 16, pkgText: "₹16.00 LPA", gotra: "Pautamashyan", dob: "24.02.1994", birthYear: 1994, ht: "5'8\"", father: "S/o Sri Kaushlendra Kr.", location: "Gopalpur, Naubatpur, Patna / Gujarat", phones: ["7079870172"] },
+      { id: "BNK-12", name: "Mayank Bhardwaj", category: "Bank Services", sector: "Government", edu: "B.Sc. (Math) Hons (DU)", job: "Probationary Officer (P.O.), Gramin Bank", pkgLpa: 10, pkgText: "₹10+ LPA", gotra: "Bhardwaj", dob: "1995", birthYear: 1995, ht: "5'9\"", father: "S/o Narendra Kr., Rtd. Co-operative Dept", location: "Patliputra Colony, Patna / Native: Siwan", phones: ["9430509679", "9431619251"] },
+      { id: "BNK-14", name: "Mayank Raj", category: "Bank Services", sector: "Government", edu: "B.E. (ECE)", job: "Grade-A Officer, Reserve Bank of India (RBI)", pkgLpa: null, pkgText: "RBI Grade-A Scale", gotra: "Kashyap", dob: "Aug 1993", birthYear: 1993, ht: "5'9\"", father: "S/o Ajay Kr., RBI", location: "Rajendra Nagar, Patna", phones: ["9431840871", "9905660427"] },
+      { id: "BNK-16", name: "Ashutosh Kumar", category: "Bank Services", sector: "Government", edu: "B.Tech", job: "Senior Manager, SEBI, Mumbai", pkgLpa: null, pkgText: "SEBI Officer Scale", gotra: "Sawarn", dob: "1992", birthYear: 1992, ht: "5'7\"", father: "S/o Sri Ramji Pandey, Rtd. HOD English, S.B. College Ara", location: "Ara, Bhojpur / Mumbai", phones: ["9546366081", "7372848821"] },
+      { id: "BNK-20", name: "Prashant Kr.", category: "Bank Services", sector: "Government", edu: "B.Sc. (Math Hons.)", job: "Probationary Officer (P.O.), State Bank of India (SBI), Guwahati", pkgLpa: null, pkgText: "SBI PO Scale", gotra: "Sawarn", dob: "10.08.1996", birthYear: 1996, ht: "5'9\"", father: "S/o Sri Raj Kishore Singh (Businessman)", location: "Nawada / Guwahati", phones: ["7808309272"] },
+      { id: "BNK-22", name: "Abhishek Thakur", category: "Bank Services", sector: "Government", edu: "B.Tech", job: "RBI Assistant, Reserve Bank of India, Ranchi", pkgLpa: null, pkgText: "RBI Pay Scale", gotra: "Sawarn", dob: "09.09.1992", birthYear: 1992, ht: "5'9\"", father: "S/o Suresh Thakur, E.E. P.W.D. Ranchi", location: "Ranchi / Native: Bhojpur", phones: ["9709291479", "9262841447"] },
+      { id: "BNK-30", name: "Harsh Ranjan", category: "Bank Services", sector: "Private", edu: "B.E. (VIT Vellore), MBA (XIMB Bhubaneswar)", job: "Manager, ICICI Bank, Bangalore", pkgLpa: null, pkgText: "ICICI Manager Scale", gotra: "Bhardwaj", dob: "1996", birthYear: 1996, ht: "5'10\"", father: "S/o Sri Arun Kumar, DIG, CISF", location: "Sheotar, Nawada / Bangalore", phones: ["9546390701"] },
+      { id: "BNK-31", name: "Abhishek Thakur", category: "Bank Services", sector: "Government", edu: "B.E. (Computer Science)", job: "Assistant Manager (System), SBI, Navi Mumbai", pkgLpa: null, pkgText: "SBI Officer Scale", gotra: "Sawarn", dob: "July 1995", birthYear: 1995, ht: "5'9\"", father: "S/o Sri Umesh Thakur, Office Supdt, GOI Jaipur", location: "Native: Ara / Jaipur / Navi Mumbai", phones: ["9928892344", "6367519681"] },
+      { id: "BNK-32", name: "Roushan Singh", category: "Bank Services", sector: "Government", edu: "B.Tech (Punjab Univ)", job: "Bank Manager, Central Bank of India (CBI)", pkgLpa: null, pkgText: "PSU Bank Manager", gotra: "Vats", dob: "28.12.1994", birthYear: 1994, ht: "6'0\"", father: "S/o Sri Anil Kr., UDC in Govt of Bihar", location: "Danapur, Patna", phones: ["7903052795"] },
+
+      // ================= 3. ENGINEERING & IT SERVICES =================
+      { id: "ENG-01", name: "Rajiv Nayan", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (E&C) IIT Guwahati", job: "Software Engineer, Arista Networks, Bangalore", pkgLpa: 44, pkgText: "₹44.00 LPA", gotra: "Krishnatrey", dob: "Dec 1997", birthYear: 1997, ht: "6'1\"", father: "S/o Sri Sudhir Kr., Deputy Commandant in CISF", location: "Phulwari Sharif, Dulhin Bazar, Patna / Bangalore", phones: ["8765868384"] },
+      { id: "ENG-02", name: "Alok Narayan", category: "Engineering & Tech", sector: "Private", edu: "B.Tech Mech (BITS Pilani 2024), MBA (IIM Indore 2026)", job: "Manager, Kotak Mahindra Bank, Mumbai", pkgLpa: 30, pkgText: "IIM Manager Scale", gotra: "Sawarn", dob: "26.03.2002", birthYear: 2002, ht: "6'3\"", father: "S/o Shree Narayan (ONGC Group Company, Delhi)", location: "Sec-82 Faridabad / Native: Sitamarhi", phones: ["9868458440"] },
+      { id: "ENG-04", name: "Ganesh Kumar", category: "Engineering & Tech", sector: "Government", edu: "B.Tech (EEE)", job: "Assistant Section Officer (ASO), Patna High Court", pkgLpa: null, pkgText: "High Court Scale", gotra: "Kaundilya", dob: "24.04.1994", birthYear: 1994, ht: "5'9\"", father: "S/o Ramanuj Kr., K.V. Teacher", location: "Danapur & Bharatpur, Pali, Patna", phones: ["9572603390", "9901940638"] },
+      { id: "ENG-06", name: "Vivek Kr.", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech CSE (IIT-ISM Dhanbad, 2016)", job: "Software Engineer, Facebook (Meta), London (Ex-Adobe)", pkgLpa: 85, pkgText: "Meta London UK", gotra: "Shandilya", dob: "15.08.1994", birthYear: 1994, ht: "5'8\"", father: "S/o Sri Vijay Singh, S.I. Bihar Police, Patna", location: "Phulwari Sharif, Patna / Lakhisarai / London", phones: ["7870739401"] },
+      { id: "ENG-07", name: "Avinash Kr.", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (Computer Science)", job: "Software Engineer in London, UK", pkgLpa: 57, pkgText: "₹57.00 LPA (London)", gotra: "Kashyap", dob: "26.11.1994", birthYear: 1994, ht: "5'11\"", father: "S/o Niranjan Kr. Choudhary, Rtd. Indian Air Force", location: "Khagaria, Bihar / London, UK", phones: ["9960086996"] },
+      { id: "ENG-13", name: "Kundan Kunal", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (Aeronautical Engg)", job: "Technical Officer in Aviation, Maldives", pkgLpa: 28, pkgText: "₹28.00 LPA", gotra: "Kashyap", dob: "28.11.1996", birthYear: 1996, ht: "6'2\"", father: "S/o Sri K.K. Dubey, Rtd. Teacher", location: "Palamu, Jharkhand / Maldives", phones: ["7903796816", "6201552018"] },
+      { id: "ENG-15", name: "Kumar Rakshit", category: "Engineering & Tech", sector: "Private", edu: "B.Sc. Aircraft Maintenance Engineer", job: "Aerospace Reliability Engineer, Cyient Ltd., Bengaluru", pkgLpa: 12, pkgText: "₹12.00 LPA", gotra: "Vats", dob: "11.04.1998", birthYear: 1998, ht: "5'11\"", father: "S/o Sri J.P. Singh", location: "Samastipur / Bengaluru", phones: ["8989121266"] },
+      { id: "ENG-17", name: "Murlidhar Rai", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (IIIT)", job: "ASIC Engineer in Facebook (Meta)", pkgLpa: 100, pkgText: "₹1.00 Crore LPA", gotra: "Shandilya", dob: "27.11.1994", birthYear: 1994, ht: "5'6\"", father: "S/o Sri S.P. Rai", location: "Samastipur", phones: ["9950979360"] },
+      { id: "ENG-21", name: "Navneet Kr.", category: "Engineering & Tech", sector: "Private", edu: "B.Tech CSE (BITS Hyderabad)", job: "Software Engineer, Bangalore", pkgLpa: 50, pkgText: "₹50.00 LPA", gotra: "Shandilya", dob: "01.08.1997", birthYear: 1997, ht: "5'11\"", father: "S/o Sri Manoj Kr. Singh (Ex-Army)", location: "Gaya, Bihar / Bangalore", phones: ["7870706851"] },
+      { id: "ENG-22", name: "Prasant Vats", category: "Engineering & Tech", sector: "Government", edu: "B.Tech Civil, M.Tech Transportation (IIT Delhi 2024)", job: "Executive Engineer at NTPC (THDCIL), Ministry of Power", pkgLpa: 18, pkgText: "NTPC PSU Scale", gotra: "Vats", dob: "13.01.1997", birthYear: 1997, ht: "6'1\"", father: "S/o Sri Pawan Kr. (Ex Bureau Chief) & Govt Teacher Mother", location: "Samastipur, Bihar", phones: ["8789186418"] },
+      { id: "ENG-29", name: "Harsh", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (CS) 2022, M.Tech (BITS Pilani)", job: "Software Engineer (Remote for Sweden Co.)", pkgLpa: 50, pkgText: "₹50.00 LPA", gotra: "Sawarn", dob: "15.01.2000", birthYear: 2000, ht: "6'1\"", father: "S/o Pankaj Kr.", location: "Res: Delhi / Native: Muzaffarpur", phones: ["9811226698"] },
+      { id: "ENG-30", name: "Roshan Sharma", category: "Engineering & Tech", sector: "Government", edu: "B.Tech Civil (RTU Kota)", job: "Junior Engineer, Panchayati Raj Dept, Govt. of Rajasthan", pkgLpa: null, pkgText: "Rajasthan Govt JE", gotra: "Mandavya", dob: "04.08.2000", birthYear: 2000, ht: "5'11\"", father: "S/o S.N. Sharma, Udaipur", location: "Udaipur / Native: Bhojpur, Bihar", phones: ["9785753533"] },
+      { id: "ENG-31", name: "Azad Kr. Singh", category: "Engineering & Tech", sector: "Government", edu: "B.Tech (Elec & Comm) BPUT Odisha", job: "Assistant Superintendent, Central Passport Org, MEA", pkgLpa: null, pkgText: "MEA Central Govt", gotra: "Vats", dob: "18.08.1997", birthYear: 1997, ht: "5'6\"", father: "S/o Randhir Kr. Singh", location: "Ranchi / Native: Begusarai, Bihar", phones: ["8051065938"] },
+      { id: "ENG-36", name: "Prasant Kr.", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (NIT Patna)", job: "Software Engineer (American MNC)", pkgLpa: 40, pkgText: "₹40.00 LPA", gotra: "Kashyap", dob: "19.02.2000", birthYear: 2000, ht: "6'0\"", father: "S/o Sri Surendra Kr., Rtd. Govt. Teacher", location: "Hajipur, Vaishali / Native: Paliganj, Patna", phones: ["9709986274"] },
+      { id: "ENG-42", name: "Dr. Gaurav Kumar", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (NIT Surat), M.Tech Gold Medalist, Ph.D. (IIT Delhi)", job: "Sr. Design Engineer, Neenja MFG Pvt. Ltd., Noida", pkgLpa: 40, pkgText: "₹40.00 LPA", gotra: "Kashyap", dob: "14.04.1996", birthYear: 1996, ht: "5'7\"", father: "S/o Sri Bhupendra Kumar (Ex Chief Controller Rail, Patna)", location: "Khagaul Road, Patna / Native: Arwal", phones: ["7903346884"] },
+      { id: "ENG-43", name: "Abhishek Kumar", category: "Engineering & Tech", sector: "Business", edu: "B.Tech (BITS Pilani), M.Sc. Economics", job: "Co-founder & CTO of Driffle (Driffle.com Gaming Marketplace)", pkgLpa: 100, pkgText: "₹1.00 Crore/Yr", gotra: "Atri", dob: "28.12.1995", birthYear: 1995, ht: "5'10\"", father: "S/o Sri Ajay Kumar (Railways), Bokaro", location: "Bokaro / Gurgaon / Native: Nalanda", phones: ["8210734642", "7903315955"] },
+      { id: "ENG-50", name: "Rishabh Singh", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (2016), MBA (XIMB Odisha, 2022)", job: "Consultant at Accenture (Ex-Amdocs, Deloitte)", pkgLpa: 28, pkgText: "₹28.00 LPA", gotra: "Vats", dob: "21.04.1995", birthYear: 1995, ht: "5'9\"", father: "S/o Late Vishwanath Singh", location: "Sandesh, Ara / Jabalpur", phones: ["9691552553"] },
+      { id: "ENG-52", name: "Abhishek Rai", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (Computer Science)", job: "Data Scientist in Logitech, Bangalore", pkgLpa: 46.25, pkgText: "₹46.25 LPA", gotra: "Kashyap", dob: "23.11.1996", birthYear: 1996, ht: "5'10\"", father: "S/o Ashpunjay Rai, Principal Govt. ITI Kushinagar", location: "Deoria / Gorakhpur / Bangalore", phones: ["8858603058", "9450882081"] },
+      { id: "ENG-61", name: "Dr. Rohit Chandar", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech, M.S. (Germany), Ph.D. Advanced Robotics (France)", job: "Robotics Scientist / Engineer in France", pkgLpa: 50, pkgText: "₹50.00 LPA (France)", gotra: "Vats", dob: "30.09.1987", birthYear: 1987, ht: "5'5\"", father: "S/o Tanik Pd. Singha", location: "Bailey Road, Patna / Native: Nalanda / France", phones: ["9430513086"] },
+      { id: "ENG-62", name: "Priya Ranjan Sharma", category: "Engineering & Tech", sector: "Private", edu: "B.Tech Mech, MBA (Symbiosis Nashik)", job: "Sr. Manager, ACT Fibernet, Bangalore", pkgLpa: 35, pkgText: "₹35.00 LPA", gotra: "Atri", dob: "13.12.1995", birthYear: 1995, ht: "5'11\"", father: "S/o Pramod Kr. Sharma (Businessman)", location: "Dhanbad / Native: Jehanabad", phones: ["9431316072"] },
+      { id: "ENG-63", name: "Nirabh Mani", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (Computer Science)", job: "Software Engineer at Amazon", pkgLpa: 35, pkgText: "Amazon SDE Scale", gotra: "Vats", dob: "22.03.1997", birthYear: 1997, ht: "5'8\"", father: "S/o Sri Navin Pd. Singh", location: "Samai, Nawada, Bihar", phones: ["9262873437"] },
+      { id: "ENG-68", name: "Nitish Kr.", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (Mech), M.S. (Operations Management)", job: "Engineering Professional in Germany", pkgLpa: 40, pkgText: "₹40.00 LPA (Germany)", gotra: "Vats", dob: "06.07.1996", birthYear: 1996, ht: "5'10\"", father: "S/o Rajeev Kr. Thakur", location: "Samastipur / Ghaziabad / Germany", phones: ["9821402447"] },
+      { id: "ENG-69", name: "Sudhanshu Saurabh", category: "Engineering & Tech", sector: "Government", edu: "B.Tech (Mech.) Bangalore", job: "Senior Engineer in Delhi Metro Rail Corporation (DMRC)", pkgLpa: null, pkgText: "DMRC PSU Scale", gotra: "Kashyap", dob: "11.03.1996", birthYear: 1996, ht: "5'10\"", father: "S/o Sri Shiv Badan Pandey, Rtd. Teacher", location: "Phulwari Sharif, Patna / Delhi / Native: Buxar", phones: ["9334205833", "7277652826"] },
+      { id: "ENG-82", name: "Harsh Sharma", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (Jadavpur University, Kolkata)", job: "Software Developer, Bangalore", pkgLpa: 30, pkgText: "₹30+ LPA", gotra: "Krishnatrey", dob: "1997", birthYear: 1997, ht: "6'0\"", father: "S/o Mukesh Kr. Sharma (Railways)", location: "Barichak, Patna / Bangalore", phones: ["9477462386", "9123379428"] },
+      { id: "ENG-85", name: "Vishnu Shankar", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (BITS Pilani)", job: "Software Engineer, Bangalore", pkgLpa: 30, pkgText: "₹30.00 LPA", gotra: "Kashyap", dob: "21.01.1996", birthYear: 1996, ht: "5'11\"", father: "S/o Sri Arvind Kr. Mukesh, S.E.E. Railways (Rtd.)", location: "Masaurhi, Patna / Native: Muzaffarpur", phones: ["9576794225"] },
+      { id: "ENG-87", name: "Amarnath Pd.", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (KIIT Univ, 2021)", job: "Software Engineer in Google, Bangalore", pkgLpa: 70, pkgText: "₹70+ LPA", gotra: "Parashar", dob: "28.08.1999", birthYear: 1999, ht: "5'9\"", father: "S/o Sri Murari Pd., Head Clerk, Sheikhpura", location: "Sheikhpura / Bangalore", phones: ["9430943425", "7250939395"] },
+      { id: "ENG-91", name: "Arunav Aksat", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (Delhi), M.B.A. (MDI Gurgaon)", job: "Strategy & Consulting at Accenture, Gurgaon", pkgLpa: 40, pkgText: "₹40.00 LPA", gotra: "Kashyap", dob: "Oct 1997", birthYear: 1997, ht: "5'7\"", father: "S/o Manoj Kr. Sinha", location: "Begusarai / Res: Delhi", phones: ["9313038225", "9871505040"] },
+      { id: "ENG-92", name: "Aditya Kr.", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (2018), MBA (IIM Ahmedabad, 2024)", job: "Strategy Manager with Lodha Group, Mumbai", pkgLpa: 40, pkgText: "₹40.00 LPA", gotra: "Kashyap", dob: "12.02.1997", birthYear: 1997, ht: "6'0\"", father: "S/o Sri Ajay Singh", location: "Gaya, Bihar / Mumbai", phones: ["995552296", "9334848476"] },
+      { id: "ENG-94", name: "Amant Kr.", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech CS (JSPM Pune)", job: "Project Leader (Cyber Security & AI), Infosys, Dallas, Texas, USA", pkgLpa: 75, pkgText: "$90K USD (USA)", gotra: "Vats", dob: "01.02.1997", birthYear: 1997, ht: "5'10\"", father: "S/o A.K. Sinha, Project Head Pune", location: "Pune / Dallas, Texas, USA", phones: ["9850145528"] },
+      { id: "ENG-96", name: "Himanshu", category: "Engineering & Tech", sector: "Private", edu: "B.Tech CS, M.Tech CS (NIT Jalandhar)", job: "Software Developer Engineer, Intel (R&D), Bangalore", pkgLpa: 25, pkgText: "₹25.00 LPA", gotra: "Bhardwaj", dob: "16.01.2002", birthYear: 2002, ht: "5'9\"", father: "S/o Sri B.K. Singh, MWO in Indian Air Force", location: "Vadodara, Gujarat / Gopalganj", phones: ["9601380078", "7990473664"] },
+      { id: "ENG-97", name: "Yashwant Sharma", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (Allahabad)", job: "Software Developer at Amazon, Bangalore", pkgLpa: 60, pkgText: "₹60.00 LPA", gotra: "Bhardwaj", dob: "Jan 1994", birthYear: 1994, ht: "5'7\"", father: "S/o Sri Hemant Kumar", location: "Res: Patna / Native: Hajipur", phones: ["9801350949"] },
+      { id: "ENG-103", name: "Abhinav Vinchi", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (IT), M.Tech AI (IIIT Allahabad)", job: "Software Engineer at Microsoft, Bangalore", pkgLpa: 90, pkgText: "₹90.00 LPA", gotra: "Sawarn", dob: "20.05.1996", birthYear: 1996, ht: "5'11\"", father: "S/o Anay Kr. (Businessman)", location: "Kumhrar, Bihta, Patna / Bangalore", phones: ["9525395846"] },
+      { id: "ENG-107", name: "Saurabh Anand", category: "Engineering & Tech", sector: "Private", edu: "B.Tech CS (Allahabad)", job: "Sr. Software Engineer at Flipkart, Bangalore", pkgLpa: 40, pkgText: "₹40.00 LPA", gotra: "Vats", dob: "20.09.1996", birthYear: 1996, ht: "5'10\"", father: "S/o Sri Manoj Kumar, Team Leader NHAI", location: "Gola Road, Patna / Native: Belaganj, Gaya", phones: ["9534469054", "6201868399"] },
+      { id: "ENG-115", name: "Raj Venkatesh", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (Manipal)", job: "Manager at KPMG, Bangalore", pkgLpa: 45, pkgText: "₹45.00 LPA", gotra: "Udyalak", dob: "Jan 1990", birthYear: 1990, ht: "6'0\"", father: "S/o Surendra Pd. Singh", location: "Patna / Bangalore", phones: ["9934082016"] },
+      { id: "ENG-122", name: "Rahul Ranjan", category: "Engineering & Tech", sector: "Government", edu: "B.Tech (ECE) Delhi", job: "Assistant Section Officer (ASO), Central Secretariat, GOI Delhi", pkgLpa: null, pkgText: "Central Secretariat ASO", gotra: "Shandilya", dob: "05.01.1996", birthYear: 1996, ht: "5'11\"", father: "S/o Rajiv Ranjan Kumar, Principal Govt School Delhi", location: "Delhi / Native: Nawada, Bihar", phones: ["9868411084", "7982382888"] },
+      { id: "ENG-130", name: "Kislay Kumar", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech IT (Kolkata), M.S. CS (USA)", job: "Robotics Engineer at Amazon, Seattle, USA", pkgLpa: 120, pkgText: "Amazon Seattle USA", gotra: "Kashyap", dob: "27.02.1994", birthYear: 1994, ht: "5'10\"", father: "S/o Late Rabindra Pd., SM Coal India (Rtd.)", location: "Native: Lakhisarai / Seattle, USA", phones: ["8900741879"] },
+      { id: "ENG-155", name: "Kunal Singh", category: "Engineering & Tech", sector: "Private", edu: "B.Tech CS, M.Tech CS (NIT Calicut)", job: "Associate in Goldman Sachs, Bangalore", pkgLpa: 40, pkgText: "₹40.00 LPA", gotra: "Bhardwaj", dob: "10.10.1992", birthYear: 1992, ht: "5'10\"", father: "S/o Ranjan Kr., Railway Employee", location: "Chittaranjan, WB / Bangalore", phones: ["9933794352", "8972779061"] },
+      { id: "ENG-159", name: "Sudhanshu Rai", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (CS), M.S. (UCLA, California, USA)", job: "Software Engineer in Los Angeles, USA", pkgLpa: 85, pkgText: "$100K USD (USA)", gotra: "Bhardwaj", dob: "15.01.1995", birthYear: 1995, ht: "5'10\"", father: "S/o Sri A.K. Rai, Dy. Director Central Govt, Lucknow", location: "Lucknow / California, USA", phones: ["9044320011"] },
+      { id: "ENG-161", name: "Abhinav Kr.", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (W.B.)", job: "Software Professional in Singapore", pkgLpa: 55, pkgText: "₹55.00 LPA (Singapore)", gotra: "Kashyap", dob: "1995", birthYear: 1995, ht: "5'10\"", father: "Family in Nalanda", location: "Native: Nalanda, Bihar / Singapore", phones: ["9955630940"] },
+      { id: "ENG-162", name: "Prasant Bhogendra Chaudhary", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech, M.S. (USA)", job: "Software Engineer in U.S.A.", pkgLpa: 85, pkgText: "₹85.00 LPA (USA)", gotra: "Kashyap", dob: "1994", birthYear: 1994, ht: "5'10\"", father: "Family in Madhubani", location: "Native: Madhubani, Bihar / USA", phones: ["9819358226"] },
+      { id: "ENG-195", name: "Dr. Ashutosh", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (IIT Kharagpur), PG & Ph.D. (USA)", job: "Scientist at Los Alamos National Lab, USA", pkgLpa: 150, pkgText: "₹1.50 Crore LPA", gotra: "Vats", dob: "1988", birthYear: 1988, ht: "5'6\"", father: "S/o Satish Kumar Saroj", location: "Samariya / USA", phones: ["9934431341"] },
+      { id: "ENG-198", name: "Rahul Kr.", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (IT)", job: "Software Professional in U.S.A.", pkgLpa: 105, pkgText: "₹1.05 Crore LPA", gotra: "Shandilya", dob: "1990", birthYear: 1990, ht: "6'1\"", father: "S/o Upendra Pd. Singh", location: "Muzaffarpur, Bihar / USA", phones: ["9430804042"] },
+      { id: "ENG-201", name: "Niraj Rai", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (IIT-ISM), MBA (FMS Delhi)", job: "Sr. Marketing Manager at Amazon", pkgLpa: 150, pkgText: "₹1.50 Crore+ LPA", gotra: "Kashyap", dob: "1988", birthYear: 1988, ht: "5'10\"", father: "S/o Sri P.N. Rai, E.E. PWD (Rtd.)", location: "Danapur, Patna / Buxar / Lucknow", phones: ["9452461633", "8052151758"] },
+      { id: "ENG-210", name: "Er. Raghav Prapann", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (IIT Bombay), MBA (IIM Ahmedabad)", job: "Vice President / Associate at J.P. Morgan", pkgLpa: 50, pkgText: "J.P. Morgan Scale", gotra: "Gautam", dob: "1995", birthYear: 1995, ht: "5'10\"", father: "S/o Ramlagan Singh", location: "Kankarbagh, Patna / Mumbai", phones: ["8826895171", "9973972571"] },
+      { id: "ENG-221", name: "Dr. Bipul Kumar", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech & M.S. Physics (IIT Kanpur), Ph.D. (TIFR Mumbai)", job: "Post-Doctoral Fellow, Tsinghua University", pkgLpa: 38.4, pkgText: "₹38.40 LPA", gotra: "Kashyap", dob: "Oct 1999", birthYear: 1999, ht: "5'8\"", father: "S/o Er. S.N. Sharma, S.E. Govt. of Bihar", location: "Jagdeo Path, Patna / Native: Gaya", phones: ["9431821564"] },
+      { id: "ENG-222", name: "Capt. Rohit Kr.", category: "Engineering & Tech", sector: "Private", edu: "B.Tech, Commercial Pilot License", job: "Commercial Airline Pilot at IndiGo Airlines", pkgLpa: 45, pkgText: "Airline Pilot Scale", gotra: "Kashyap", dob: "Dec 1993", birthYear: 1993, ht: "5'11\"", father: "S/o B.K. Roy (Govt. Teacher)", location: "New Delhi / Native: Ara, Bhojpur", phones: ["9430221768"] },
+      { id: "ENG-223", name: "Akhil Ranjan", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech CS (VIT), M.S. Data Science (Univ of Chicago, USA)", job: "Data Scientist in Silicon Valley, California, USA", pkgLpa: 120, pkgText: "Silicon Valley USA", gotra: "Bhardwaj", dob: "30.11.1995", birthYear: 1995, ht: "5'11\"", father: "S/o Shree Rajeev Ranjan, IAS, Chief Secretary (Rtd.) Tamil Nadu", location: "Delhi / Native: Samastipur / California, USA", phones: ["9952076549", "9940624444"] },
+      { id: "ENG-244", name: "Tushar Ranjan", category: "Engineering & Tech", sector: "Private", edu: "B.Tech (E&C), M.S. Computer Science (USA)", job: "Software Engineer at J.P. Morgan", pkgLpa: 96, pkgText: "₹96.00 LPA", gotra: "Bhardwaj", dob: "11.08.1996", birthYear: 1996, ht: "6'0\"", father: "S/o Dr. Rakesh Ranjan (PSU)", location: "Faridabad / Native: U.P.", phones: ["9816503135"] },
+      { id: "ENG-252", name: "Satyam Singh", category: "Engineering & Tech", sector: "Abroad", edu: "M.Sc. (BIT Mesra), M.S. (USA)", job: "Software Engineer at Apple, London", pkgLpa: 90, pkgText: "Apple London UK", gotra: "Shandilya", dob: "14.05.1996", birthYear: 1996, ht: "5'10\"", father: "S/o Sri Vijay Singh", location: "Bhagalpur, Bihar / London, UK", phones: ["8708139340"] },
+      { id: "ENG-253", name: "Abhisek Kumar", category: "Engineering & Tech", sector: "Private", edu: "B.Tech CS (BITS Pilani)", job: "Software Engineer in MNC, Bangalore", pkgLpa: 60, pkgText: "₹60.00 LPA", gotra: "Shandilya", dob: "13.07.1992", birthYear: 1992, ht: "5'6\"", father: "S/o Er. Anil Kumar", location: "Nawada / Res: Mumbai & Patna", phones: ["7796624046"] },
+      { id: "ENG-265", name: "Kshir Gaurabh", category: "Engineering & Tech", sector: "Private", edu: "B.Tech Mining Engg. (IIT Dhanbad, 2020)", job: "Associate Consultant in ZS Associates, Bangalore", pkgLpa: 35, pkgText: "₹35.00 LPA", gotra: "Sankritya", dob: "01.05.1997", birthYear: 1997, ht: "6'0\"", father: "S/o Sri Sanjay Kumar, GM, ONGC, Delhi", location: "Greater Noida, Delhi / Native: Mokama, Patna", phones: ["9004273527"] },
+      { id: "ENG-270", name: "Abhinav Kumar", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech, M.S. (California, USA)", job: "Software Engineer in California, USA", pkgLpa: 250, pkgText: "₹2.50 Crore P.A.", gotra: "Vats", dob: "18.05.1994", birthYear: 1994, ht: "5'8\"", father: "S/o Rakesh Kumar (Businessman)", location: "Native: Ranchi / California, USA", phones: ["8789231566", "9835554261"] },
+      { id: "ENG-274", name: "Laxmikant", category: "Engineering & Tech", sector: "Government", edu: "B.Tech Civil (IIT Delhi)", job: "AEE, Road Transport & Highways (UPSC-IES 2024 Rank-03)", pkgLpa: null, pkgText: "UPSC IES Officer", gotra: "Sawarn", dob: "24.12.1998", birthYear: 1998, ht: "5'9\"", father: "S/o Chitranjan Kumar (Pharma Business)", location: "Manpur, Gaya, Bihar", phones: ["9431280841", "7295052895"] },
+      { id: "ENG-277", name: "Satya Prakash", category: "Engineering & Tech", sector: "Private", edu: "B.E. CS (IIT Guwahati), M.S. (Univ of California, USA)", job: "Executive at Goldman Sachs, Bangalore", pkgLpa: 50, pkgText: "Goldman Sachs Scale", gotra: "Sawarn", dob: "Jan 1997", birthYear: 1997, ht: "5'10\"", father: "S/o Sri D.K. Singh, Rtd. AGM United Bank of India", location: "Maheshnagar, Patna / Bihta", phones: ["7044032323", "8544180445"] },
+      { id: "ENG-291", name: "Rahul Kishore", category: "Engineering & Tech", sector: "Private", edu: "B.E. (KIIT), Data Science (IIT Madras)", job: "Tech Lead at Elev8, Bangalore", pkgLpa: 72, pkgText: "₹72.00 LPA", gotra: "Kashyap", dob: "Jan 1992", birthYear: 1992, ht: "5'11\"", father: "S/o Dr. Shyamal Kishore, Prof. Patliputra Univ", location: "Patna / Bangalore", phones: ["9934664788", "8210244310"] },
+      { id: "ENG-295", name: "Shaswat Yashwardhan", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech Mech (VIT), M.S. Mech (Columbia Univ, New York, USA)", job: "Energy Engineer at Arcadis, New York, USA", pkgLpa: 100, pkgText: "$120K+ USD (NYC)", gotra: "Gautam", dob: "22.10.1998", birthYear: 1998, ht: "6'0\"", father: "S/o Mr. Salil Kr., AVP Pune & Univ Prof Mother", location: "Pune / Native: Begusarai / New York, USA", phones: ["7767823230"] },
+      { id: "ENG-306", name: "Adarsh Kumar", category: "Engineering & Tech", sector: "Abroad", edu: "B.Tech (IIT Kharagpur 2021), M.S. (California, USA 2025)", job: "Data Scientist at The Voleon Group, New York, USA", pkgLpa: 375, pkgText: "₹3.50 - 4.00 Cr P.A.", gotra: "Kashyap", dob: "09.11.1998", birthYear: 1998, ht: "5'8\"", father: "S/o Abhay Kumar (SBI Mumbai)", location: "Native: Nalanda / Mumbai / New York, USA", phones: ["7463882399"] },
+
+      // ================= 4. DEFENCE SERVICES =================
+      { id: "DEF-01", name: "Anand Raj", category: "Defence Services", sector: "Private", edu: "B.A., Commercial Pilot Training (Cape Town, South Africa)", job: "Commercial Pilot", pkgLpa: null, pkgText: "Aviation Scale", gotra: "Kashyap", dob: "05.06.1997", birthYear: 1997, ht: "6'3\"", father: "S/o Sri Venkatesh Kumar (T.P.S. College)", location: "Kankarbagh, Patna / Native: Arwal", phones: ["9308471560", "9708263779"] },
+      { id: "DEF-03", name: "Aman Kashyap", category: "Defence Services", sector: "Government", edu: "B.Tech (Civil)", job: "Inspector in CRPF (Central Reserve Police Force)", pkgLpa: null, pkgText: "CRPF Officer Scale", gotra: "Kashyap", dob: "Jan 1996", birthYear: 1996, ht: "5'10\"", father: "S/o Sri C.P. Singh", location: "Motihari, East Champaran", phones: ["9431206473"] },
+      { id: "DEF-04", name: "Capt. Subham Kr.", category: "Defence Services", sector: "Government", edu: "Graduate", job: "Captain in Indian Army", pkgLpa: null, pkgText: "Indian Army Captain", gotra: "Shandilya", dob: "Dec 1993", birthYear: 1993, ht: "5'11\"", father: "S/o Jawahar Chaudhary, TGT K.V. Hyderabad", location: "Hyderabad", phones: ["8143431976", "8800358690"] },
+      { id: "DEF-05", name: "Rahul Kr.", category: "Defence Services", sector: "Government", edu: "B.A.", job: "Indian Air Force, Agra, U.P.", pkgLpa: null, pkgText: "Indian Air Force", gotra: "Kashyap", dob: "22.09.2001", birthYear: 2001, ht: "5'7\"", father: "S/o Sanjay Kr. (LIC Jamshedpur)", location: "Jamshedpur / Native: Sheikhpura", phones: ["7079234732", "9470352638"] },
+
+      // ================= 5. MEDICAL SERVICES (DOCTORS) =================
+      { id: "MED-01", name: "Dr. Harish Ranjan", category: "Medical Services", sector: "Government", edu: "MBBS (PMCH Patna)", job: "Doctor in AIIMS Deoghar", pkgLpa: null, pkgText: "AIIMS Doctor Scale", gotra: "Shandilya", dob: "17.07.1998", birthYear: 1998, ht: "6'2\"", father: "S/o Binod Singh", location: "Bhawani Tola, Patna / AIIMS Deoghar", phones: ["9508337000"] },
+      { id: "MED-02", name: "Dr. Amrit Raj", category: "Medical Services", sector: "Government", edu: "MBBS (Katihar), Pursuing PG (Ex-JR NMCH Patna)", job: "Resident Doctor", pkgLpa: null, pkgText: "Resident Doctor", gotra: "Kashyap", dob: "03.08.1995", birthYear: 1995, ht: "6'0\"", father: "S/o Dr. Rajiv Kumar, S.P.O. Health Bihar Govt", location: "Bailey Road, Bikram, Patna", phones: ["9835498689", "8002508938"] },
+      { id: "MED-05", name: "Dr. Vishwajit Kr. Pandey", category: "Medical Services", sector: "Private", edu: "MBBS (SS Medical College, Tumkur)", job: "Doctor at W.D.U. Hospital, Delhi", pkgLpa: 18, pkgText: "₹18.00 LPA", gotra: "Bhardwaj", dob: "24.08.1990", birthYear: 1990, ht: "5'8\"", father: "S/o Late V.K. Pandey", location: "Jamshedpur / Native: Chhapra, Bihar", phones: ["8235378896"] },
+      { id: "MED-06", name: "Dr. Manish Kr.", category: "Medical Services", sector: "Government", edu: "MBBS (ANMMCH Gaya), PG Medicine (IGH Rourkela)", job: "Medical Officer (Doctor), Govt. of Bihar", pkgLpa: null, pkgText: "Bihar Health Service", gotra: "Gautam", dob: "04.04.1995", birthYear: 1995, ht: "5'8\"", father: "S/o Sri Bindeshwari Sharma", location: "Gaya / Native: Aurangabad", phones: ["8102048080", "7488799867"] },
+      { id: "MED-10", name: "Dr. Abhishek Ranjan", category: "Medical Services", sector: "Government", edu: "MBBS (Qualified UPSC CMS)", job: "GDMO Doctor at Kasturba Hospital, Delhi (Govt. of India)", pkgLpa: null, pkgText: "UPSC CMS Scale", gotra: "Kashyap", dob: "28.05.1997", birthYear: 1997, ht: "5'8\"", father: "S/o Sri A.K. Pandey, Govt. Teacher", location: "Howrah, W.B. / Native: Simri, Buxar", phones: ["7003826260", "9883131738"] },
+      { id: "MED-14", name: "Dr. Abhinav Anand", category: "Medical Services", sector: "Government", edu: "MBBS, Pursuing M.S. in ENT at PMCH Patna", job: "Resident Surgeon (ENT), PMCH Patna", pkgLpa: null, pkgText: "PMCH Resident", gotra: "Bhardwaj", dob: "02.11.1999", birthYear: 1999, ht: "5'11\"", father: "S/o Sri Shashi Bhushan Pd. Gunjan", location: "Samastipur / Patna", phones: ["9546520999", "9430649228"] },
+      { id: "MED-18", name: "Dr. Shivam Kr.", category: "Medical Services", sector: "Government", edu: "MBBS (AMC Aligarh), PG in RML Medical College, Delhi", job: "Resident Doctor, RML Hospital, New Delhi", pkgLpa: 18, pkgText: "₹18.00 LPA", gotra: "Vats", dob: "Jan 1992", birthYear: 1992, ht: "5'7\"", father: "S/o Sri Sriniwash", location: "Karpi, Arwal / New Delhi", phones: ["7739636254", "7417739403"] },
+      { id: "MED-24", name: "Dr. Abinash Kr. Rai", category: "Medical Services", sector: "Government", edu: "MBBS (Kangra Tanda, H.P.)", job: "Senior Resident (Medicine), Govt. of Delhi", pkgLpa: 20, pkgText: "₹20.00 LPA", gotra: "Bhrigu", dob: "01.10.1988", birthYear: 1988, ht: "5'9\"", father: "S/o Dr. D.K. Rai", location: "Noida / Native: Azamgarh, U.P.", phones: ["8454873174"] },
+      { id: "MED-26", name: "Dr. Kanishk", category: "Medical Services", sector: "Government", edu: "MBBS, M.S. in Pulmonary Medicine (Mumbai)", job: "Senior Resident, Safdarjung Hospital, Delhi", pkgLpa: null, pkgText: "Central Govt SR Scale", gotra: "Vats", dob: "1994", birthYear: 1994, ht: "5'10\"", father: "S/o Sri Shishir Kumar Sinha, IAS (Chairman BPSC) & Dr. Sabnam Thakur", location: "Patna / New Delhi", phones: ["9835020450", "9470666866"] },
+      { id: "MED-33", name: "Dr. (Major) Mukul Singh", category: "Medical Services", sector: "Government", edu: "MBBS, P.G. Eye (AFMC Pune)", job: "Major in Army Medical Corps, Posted in Uttarakhand", pkgLpa: null, pkgText: "Army Major Scale", gotra: "Kashyap", dob: "Sep 1993", birthYear: 1993, ht: "5'10\"", father: "S/o Chief Station Manager Railways (Rtd.)", location: "Ranchi / Uttarakhand", phones: ["9109095657"] },
+      { id: "MED-62", name: "Dr. Mahesh", category: "Medical Services", sector: "Government", edu: "MBBS, MD Radiodiagnosis (AIIMS Bhubaneswar)", job: "Consultant Radiologist, Railway Hospital, Patna", pkgLpa: null, pkgText: "AIIMS MD Radiologist", gotra: "Gautam", dob: "1995", birthYear: 1995, ht: "5'8\"", father: "S/o Ram Balak Singh", location: "Begusarai / Patna", phones: ["7368971393", "9006145724"] },
+
+      // ================= 6. MBA / MCA / CA SERVICES =================
+      { id: "MBA-02", name: "Vinit Kr. Bibhu", category: "MBA / MCA / CA", sector: "Private", edu: "MBA (IIM Indore)", job: "Manager at American Express", pkgLpa: 30, pkgText: "Amex IIM Scale", gotra: "Kashyap", dob: "31.05.1996", birthYear: 1996, ht: "5'11\"", father: "S/o Sri Arbind Kumar, BAO Bhagalpur", location: "Bhagalpur / Native: Jehanabad", phones: ["9934689446"] },
+      { id: "MBA-05", name: "Markandey Kr.", category: "MBA / MCA / CA", sector: "Private", edu: "CA, CS & CFA", job: "Finance & Investment Professional", pkgLpa: null, pkgText: "CA/CFA Charter", gotra: "Vashishth", dob: "28.07.1996", birthYear: 1996, ht: "5'11\"", father: "S/o Sri J.K. Singh (LIC)", location: "Aurangabad / Native: Arwal", phones: ["9334105363"] },
+      { id: "MBA-16", name: "Sidharth Saurabh", category: "MBA / MCA / CA", sector: "Abroad", edu: "MBA (Arizona University, USA)", job: "Risk Analyst at J.P. Morgan Chase, Delaware, USA", pkgLpa: 85, pkgText: "J.P. Morgan USA", gotra: "Kaundilya", dob: "25.04.1989", birthYear: 1989, ht: "5'10\"", father: "S/o Jainendra Kr.", location: "Gola Road, Bikram, Patna / USA", phones: ["9431488569"] },
+      { id: "MBA-49", name: "Satish Tiwari", category: "MBA / MCA / CA", sector: "Private", edu: "B.A., MBA (Hotel Management)", job: "Commercial Director, Hotel Hilton, Jaipur", pkgLpa: 25, pkgText: "₹25.00 LPA", gotra: "Shandilya", dob: "Aug 1993", birthYear: 1993, ht: "5'6\"", father: "S/o Chandeshwar Tiwari", location: "Jhumri Telaiya / Ballia / Jaipur", phones: ["9304881375"] },
+      { id: "MBA-51", name: "Prashant Kr.", category: "MBA / MCA / CA", sector: "Private", edu: "B.A. Hons (Eng), MBA (IMT Ghaziabad)", job: "Sr. Project Leader at Bain & Company, Gurgaon", pkgLpa: 32, pkgText: "Bain & Co. Scale", gotra: "Sawarn", dob: "08.04.1993", birthYear: 1993, ht: "5'8\"", father: "S/o Sunil Kr.", location: "Bailey Road, Patna / Noida / Gurgaon", phones: ["9905051912", "7481969827"] },
+
+      // ================= 7. LAW SERVICES =================
+      { id: "LAW-01", name: "Kshitij Rai", category: "Law Services", sector: "Business", edu: "BA, LLB, LLM", job: "Advocate at Allahabad High Court", pkgLpa: 15, pkgText: "₹15.00 LPA", gotra: "Bhardwaj", dob: "20.02.1994", birthYear: 1994, ht: "5'11\"", father: "S/o Dr. Ajay Kr. Rai, Professor", location: "Prayagraj, U.P.", phones: ["7652042867"] },
+      { id: "LAW-05", name: "Ayush Kashyap", category: "Law Services", sector: "Private", edu: "B.A. L.L.B. (Hons.) NLU Delhi", job: "Legal Counsel in Corporate Law Firm, Delhi", pkgLpa: 50, pkgText: "₹50.00 LPA", gotra: "Kashyap", dob: "07.08.1994", birthYear: 1994, ht: "5'10\"", father: "S/o Sri A.K. Singh", location: "Ranchi / Native: Siwan, Bihar / Delhi", phones: ["9572893504", "7488026521"] },
+      { id: "LAW-11", name: "Vishal Vansh", category: "Law Services", sector: "Private", edu: "B.A., L.L.B.", job: "Senior Associate at Luthra and Luthra Law Offices, New Delhi", pkgLpa: 35, pkgText: "₹35.00 LPA", gotra: "Kashyap", dob: "12.02.1997", birthYear: 1997, ht: "6'1\"", father: "S/o Er. Om Prakash", location: "Ayodhya / New Delhi", phones: ["7007902872"] },
+      { id: "LAW-12", name: "Shashwat Sharma", category: "Law Services", sector: "Private", edu: "BA, LLB (NLIU Bhopal)", job: "Corporate Lawyer at 'TRILEGAL', Delhi", pkgLpa: 100, pkgText: "₹1.00 Crore LPA", gotra: "Kashyap", dob: "05.08.1991", birthYear: 1991, ht: "5'9\"", father: "S/o Sri Pramod Kumar", location: "Res: Delhi / Native: Patna", phones: ["8003394546"] },
+      { id: "LAW-27", name: "Abhinav", category: "Law Services", sector: "Government", edu: "BA LLB (UPES), LLM (BHU)", job: "Assistant Manager (Legal) in SEBI, Mumbai", pkgLpa: null, pkgText: "SEBI Grade-A Scale", gotra: "Kashyap", dob: "March 1996", birthYear: 1996, ht: "5'9\"", father: "S/o Late Sudhir Kumar", location: "Pawapuri, Nalanda / Mumbai", phones: ["9431061426", "7004559626"] },
+
+      // ================= 8. GENERAL SERVICES & SPECIAL =================
+      { id: "GEN-03", name: "Supratik Kaundilya", category: "General Services", sector: "Private", edu: "M.Sc. Microbiology (Bangalore)", job: "Manager at Novozymes, Bangalore", pkgLpa: 20, pkgText: "₹20.00 LPA", gotra: "Kaundilya", dob: "07.02.1993", birthYear: 1993, ht: "5'8\"", father: "S/o Shailendra Kr.", location: "Danapur / Kankarbagh, Patna / Native: Arwal", phones: ["9334488995", "8210708878"] },
+      { id: "GEN-06", name: "Rahul Sharma", category: "General Services", sector: "Business", edu: "B.A. Pol. Sc. Hons. (Delhi)", job: "Hospitality Business (Managing Hotel Retreat in Gangtok)", pkgLpa: 100, pkgText: "₹1.00 Cr Turnover", gotra: "Pautamashyan", dob: "01.07.1994", birthYear: 1994, ht: "5'9\"", father: "S/o Sri Sunil Kr.", location: "Naubatpur, Patna / Gangtok", phones: ["9934776009"] },
+      { id: "GEN-31", name: "Mukul Kr.", category: "General Services", sector: "Government", edu: "B.Sc. Agriculture (ICAR Raipur)", job: "Range Officer, Chhattisgarh Govt (Group-B Gazetted Officer)", pkgLpa: null, pkgText: "Gazetted Officer", gotra: "Parashar", dob: "1995", birthYear: 1995, ht: "5'8\"", father: "S/o Kumar Anand (AIR)", location: "Darbhanga / Chhattisgarh", phones: ["6206772929", "9958987600"] },
+      { id: "GEN-40", name: "Anand Mohan", category: "General Services", sector: "Government", edu: "B.Sc.", job: "Customs Inspector, Govt. of India", pkgLpa: 10, pkgText: "₹10.00 LPA", gotra: "Kashyap", dob: "29.08.1994", birthYear: 1994, ht: "5'6\"", father: "S/o Purshottam Singh", location: "Native: Motihari / Res: Bengaluru", phones: ["7372007274"] },
+      { id: "SPC-01", name: "Dr. Harsh Raj (Divyang Category)", category: "Special Categories", sector: "Government", edu: "Ph.D. in Economics (Univ of Hyderabad)", job: "Assistant Professor at Zakir Husain College (Delhi University)", pkgLpa: null, pkgText: "DU Asst. Professor", gotra: "Kashyap", dob: "01.12.1994", birthYear: 1994, ht: "5'8\"", father: "S/o Venkatesh Kr. (T.P.S. College)", location: "Kankarbagh, Patna / New Delhi", phones: ["9308471560", "9708263779"] },
+      { id: "SPC-02", name: "Ritesh Kr. (Second Marriage)", category: "Special Categories", sector: "Private", edu: "B.Tech", job: "Project Manager at Cognizant, Pune", pkgLpa: null, pkgText: "IT Project Manager", gotra: "Vats", dob: "09.12.1986", birthYear: 1986, ht: "6'1\"", father: "S/o Sri Indradeo Prasad (Rtd. Engineer)", location: "Native: Nalanda / Pune", phones: ["9972439426"] },
+      { id: "SPC-03", name: "Purnima (Second Marriage - Bride)", category: "Special Categories", sector: "Government", edu: "B.Tech Civil (Cochin Univ, Kerala)", job: "Senior Manager at SAIL (Steel Authority of India Ltd.)", pkgLpa: 22, pkgText: "SAIL PSU Sr. Manager", gotra: "Vats", dob: "09.07.1989", birthYear: 1989, ht: "5'3\"", father: "D/o Sri Sarvesh Kr. Singh, Rtd. CIL", location: "Jharkhand", phones: ["8293453527", "9335079309"] }
+    ];
+
+    // ============================================================================
+    // STATE MANAGEMENT
+    // ============================================================================
+    let profiles = [];
+    let filteredProfiles = [];
+    let shortlistedIds = new Set();
+    let currentSector = "ALL";
+    let currentCategory = "ALL";
+    let currentView = "grid";
+    let onlyShortlistedMode = false;
+
+    // Parse height string like 5'11" into total inches for sorting
+    function parseHeightInches(htStr) {
+      if (!htStr) return 0;
+      const m = htStr.match(/(\d+)\s*'\s*(\d+)?/);
+      if (!m) return 0;
+      return parseInt(m[1], 10) * 12 + (m[2] ? parseInt(m[2], 10) : 0);
+    }
+
+    // Detect premier institutes & tags
+    function getPremierTags(p) {
+      const text = `${p.edu} ${p.job}`;
+      const tags = [];
+      if (/\bIIT\b/i.test(text)) tags.push({ label: "IIT Alumni", cls: "bg-amber-500/15 text-amber-500 border-amber-500/30" });
+      if (/\bIIM\b/i.test(text)) tags.push({ label: "IIM Alumni", cls: "bg-purple-500/15 text-purple-400 border-purple-500/30" });
+      if (/\b(NIT|IIIT)\b/i.test(text)) tags.push({ label: "NIT / IIIT", cls: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30" });
+      if (/\bBITS\b/i.test(text)) tags.push({ label: "BITS Pilani", cls: "bg-indigo-500/15 text-indigo-400 border-indigo-500/30" });
+      if (/\b(AIIMS|PMCH|AFMC)\b/i.test(text)) tags.push({ label: "Premier Med", cls: "bg-rose-500/15 text-rose-400 border-rose-500/30" });
+      if (/\b(IAS|IPS|IRS|IFS|UPSC)\b/i.test(text)) tags.push({ label: "UPSC Civil Services", cls: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30" });
+      return tags;
+    }
+
+    // Initialize DB & LocalStorage
+    function initDatabase() {
+      try {
+        const savedCustom = localStorage.getItem("brahmarshi_custom_profiles_2027");
+        const customList = savedCustom ? JSON.parse(savedCustom) : [];
+        profiles = [...customList, ...INITIAL_PROFILES].map(p => ({
+          ...p,
+          heightInches: parseHeightInches(p.ht)
+        }));
+
+        const savedShortlist = localStorage.getItem("brahmarshi_shortlist_2027");
+        if (savedShortlist) {
+          shortlistedIds = new Set(JSON.parse(savedShortlist));
+        }
+      } catch (e) {
+        profiles = [...INITIAL_PROFILES];
+      }
+      populateGotraDropdown();
+      updateDashboardStats();
+      updateShortlistUI();
+      applyFilters();
+    }
+
+    function toggleTheme() {
+      document.documentElement.classList.toggle("dark");
+    }
+
+    function populateGotraDropdown() {
+      const gotraSelect = document.getElementById("gotraFilter");
+      const counts = {};
+      profiles.forEach(p => {
+        const g = (p.gotra || "Other").trim();
+        counts[g] = (counts[g] || 0) + 1;
+      });
+      const sortedGotras = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+      gotraSelect.innerHTML = `<option value="ALL">All Gotras (${sortedGotras.length})</option>` +
+        sortedGotras.map(g => `<option value="${g}">${g} (${counts[g]})</option>`).join("");
+    }
+
+    function updateDashboardStats() {
+      document.getElementById("statTotal").textContent = profiles.length;
+      document.getElementById("statGovt").textContent = profiles.filter(p => p.sector === "Government").length;
+      document.getElementById("statHighPkg").textContent = profiles.filter(p => p.pkgLpa && p.pkgLpa >= 25).length;
+      document.getElementById("statPremier").textContent = profiles.filter(p => /\b(IIT|IIM|NIT|BITS|IIIT)\b/i.test(`${p.edu} ${p.job}`)).length;
+      document.getElementById("statDoctors").textContent = profiles.filter(p => p.category === "Medical Services").length;
+    }
+
+    // Sector & Category Pill Handlers
+    function setSectorFilter(sector) {
+      currentSector = sector;
+      onlyShortlistedMode = false;
+      document.querySelectorAll(".sector-btn").forEach(btn => {
+        if (btn.dataset.sector === sector) {
+          btn.className = "sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-xs flex items-center justify-center gap-1.5";
+        } else {
+          btn.className = "sector-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold transition text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center gap-1.5";
+        }
+      });
+      applyFilters();
+    }
+
+    function setCategoryPill(cat) {
+      currentCategory = cat;
+      onlyShortlistedMode = false;
+      document.querySelectorAll(".cat-pill").forEach(pill => {
+        if (pill.dataset.cat === cat) {
+          pill.className = "cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-orange-500 text-white shadow-sm shadow-orange-500/30";
+        } else {
+          pill.className = "cat-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/[0.08]";
+        }
+      });
+      applyFilters();
+    }
+
+    function setQuickPreset(preset) {
+      resetAllFilters(false);
+      if (preset === "GOVT_ALL") {
+        setSectorFilter("Government");
+        document.getElementById("activeFilterLabel").textContent = "Filtered: Govt & PSU Officers";
+      } else if (preset === "HIGH_PKG") {
+        document.getElementById("packageFilter").value = "20";
+        document.getElementById("sortSelect").value = "pkg_desc";
+        document.getElementById("activeFilterLabel").textContent = "Filtered: High Package (20+ LPA)";
+      } else if (preset === "IIT_NIT") {
+        document.getElementById("searchInput").value = "IIT";
+        document.getElementById("activeFilterLabel").textContent = "Filtered: Premier Institute Alumni";
+      } else if (preset === "DOCTORS") {
+        setCategoryPill("Medical Services");
+        document.getElementById("activeFilterLabel").textContent = "Filtered: Medical & Doctors";
+      }
+      applyFilters();
+    }
+
+    function clearSearch() {
+      document.getElementById("searchInput").value = "";
+      applyFilters();
+    }
+
+    function resetAllFilters(shouldApply = true) {
+      onlyShortlistedMode = false;
+      document.getElementById("searchInput").value = "";
+      document.getElementById("packageFilter").value = "ALL";
+      document.getElementById("gotraFilter").value = "ALL";
+      document.getElementById("locationFilter").value = "ALL";
+      document.getElementById("sortSelect").value = "default";
+      document.getElementById("activeFilterLabel").textContent = "Showing all profiles";
+      setSectorFilter("ALL");
+      setCategoryPill("ALL");
+      if (shouldApply) applyFilters();
+    }
+
+    // Core Filter & Sort Function
+    function applyFilters() {
+      const q = document.getElementById("searchInput").value.trim().toLowerCase();
+      document.getElementById("clearSearchBtn").classList.toggle("hidden", q.length === 0);
+
+      const pkgVal = document.getElementById("packageFilter").value;
+      const gotra = document.getElementById("gotraFilter").value;
+      const loc = document.getElementById("locationFilter").value.toLowerCase();
+      const sortBy = document.getElementById("sortSelect").value;
+
+      filteredProfiles = profiles.filter(p => {
+        if (onlyShortlistedMode && !shortlistedIds.has(p.id)) return false;
+        if (currentSector !== "ALL" && p.sector !== currentSector) return false;
+        if (currentCategory !== "ALL" && p.category !== currentCategory) return false;
+
+        if (pkgVal === "ANY_PKG") {
+          if (p.pkgLpa === null || p.pkgLpa <= 0) return false;
+        } else if (pkgVal !== "ALL") {
+          const minLpa = parseFloat(pkgVal);
+          if (p.pkgLpa === null || p.pkgLpa < minLpa) return false;
+        }
+
+        if (gotra !== "ALL" && (p.gotra || "").toLowerCase() !== gotra.toLowerCase()) return false;
+
+        if (loc !== "all") {
+          const hayLoc = `${p.location} ${p.job} ${p.sector}`.toLowerCase();
+          if (loc === "usa") {
+            if (p.sector !== "Abroad" && !/(usa|u\.k\.|london|france|germany|sweden|maldives|singapore|california|texas|new york)/i.test(hayLoc)) return false;
+          } else if (loc === "patna") {
+            if (!/(patna|danapur|bihta|mokama|khagaul|phulwari|naubatpur|masaurhi|barh)/i.test(hayLoc)) return false;
+          } else if (loc === "jehanabad") {
+            if (!/(jehanabad|jahanabad|arwal)/i.test(hayLoc)) return false;
+          } else if (loc === "nawada") {
+            if (!/(nawada|nalanda)/i.test(hayLoc)) return false;
+          } else if (loc === "samastipur") {
+            if (!/(samastipur|begusarai)/i.test(hayLoc)) return false;
+          } else if (loc === "bhojpur") {
+            if (!/(ara|bhojpur|buxar)/i.test(hayLoc)) return false;
+          } else if (loc === "sitamarhi") {
+            if (!/(sitamarhi|madhubani|darbhanga)/i.test(hayLoc)) return false;
+          } else if (loc === "siwan") {
+            if (!/(siwan|saran|chhapra|chapra)/i.test(hayLoc)) return false;
+          } else if (loc === "delhi") {
+            if (!/(delhi|noida|gurgaon|gurugram|faridabad|ghaziabad)/i.test(hayLoc)) return false;
+          } else if (loc === "mumbai") {
+            if (!/(mumbai|pune)/i.test(hayLoc)) return false;
+          } else if (loc === "bangalore") {
+            if (!/(bangalore|bengaluru|hyderabad)/i.test(hayLoc)) return false;
+          } else if (!hayLoc.includes(loc)) {
+            return false;
+          }
+        }
+
+        if (q.length > 0) {
+          const searchable = `${p.id} ${p.name} ${p.category} ${p.sector} ${p.edu} ${p.job} ${p.pkgText} ${p.gotra} ${p.dob} ${p.father} ${p.location} ${(p.phones || []).join(" ")}`.toLowerCase();
+          const words = q.split(/\s+/);
+          for (const w of words) {
+            if (!searchable.includes(w)) return false;
+          }
+        }
+
+        return true;
+      });
+
+      if (sortBy === "pkg_desc") {
+        filteredProfiles.sort((a, b) => (b.pkgLpa || -1) - (a.pkgLpa || -1));
+      } else if (sortBy === "youngest") {
+        filteredProfiles.sort((a, b) => (b.birthYear || 0) - (a.birthYear || 0));
+      } else if (sortBy === "tallest") {
+        filteredProfiles.sort((a, b) => (b.heightInches || 0) - (a.heightInches || 0));
+      } else if (sortBy === "name_asc") {
+        filteredProfiles.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      document.getElementById("statShowing").textContent = filteredProfiles.length;
+      renderResults();
+    }
+
+    function getSectorBadge(sector) {
+      if (sector === "Government") {
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Govt / PSU</span>`;
+      } else if (sector === "Abroad") {
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20"><span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>Abroad / NRI</span>`;
+      } else if (sector === "Private") {
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>Private / MNC</span>`;
+      } else {
+        return `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Business / Practice</span>`;
+      }
+    }
+
+    // Render Bento Cards & Table
+    function renderResults() {
+      const gridContainer = document.getElementById("gridContainer");
+      const tableContainer = document.getElementById("tableContainer");
+      const tableBody = document.getElementById("tableBody");
+      const emptyState = document.getElementById("emptyState");
+
+      if (filteredProfiles.length === 0) {
+        gridContainer.classList.add("hidden");
+        tableContainer.classList.add("hidden");
+        emptyState.classList.remove("hidden");
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+
+      if (currentView === "grid") {
+        gridContainer.classList.remove("hidden");
+        tableContainer.classList.add("hidden");
+
+        gridContainer.innerHTML = filteredProfiles.map(p => {
+          const primaryPhone = p.phones && p.phones.length > 0 ? p.phones[0] : "";
+          const isSaved = shortlistedIds.has(p.id);
+          const premierTags = getPremierTags(p);
+          const isTopPkg = p.pkgLpa && p.pkgLpa >= 35;
+
+          const waText = encodeURIComponent(`Namaskar, we saw the matrimonial profile of ${p.name} (#${p.id}) in the Brahmarshi Samaj Patrika 2027 and would like to connect.`);
+
+          return `
+            <div class="bento-card glass-panel rounded-3xl border border-slate-200/90 dark:border-white/[0.08] p-5 flex flex-col justify-between relative overflow-hidden group">
+              
+              <!-- Subtle Top Highlight Bar -->
+              <div class="absolute top-0 inset-x-0 h-1 ${p.sector === 'Government' ? 'bg-gradient-to-r from-emerald-500 to-teal-500' : p.sector === 'Abroad' ? 'bg-gradient-to-r from-purple-500 to-pink-500' : 'bg-gradient-to-r from-indigo-500 to-orange-500'} opacity-75"></div>
+
+              <div>
+                <!-- Card Header Row -->
+                <div class="flex items-center justify-between gap-2 mb-3.5 pt-1">
+                  <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="px-2 py-0.5 rounded-md text-[11px] font-mono font-bold bg-slate-100 dark:bg-white/[0.06] text-slate-500 dark:text-slate-400">#${p.id}</span>
+                    ${getSectorBadge(p.sector)}
+                  </div>
+
+                  <button onclick="toggleShortlist('${p.id}', event)" class="p-2 rounded-xl border ${isSaved ? 'bg-rose-500/15 border-rose-500/30 text-rose-500' : 'border-slate-200 dark:border-white/[0.08] text-slate-400 hover:text-rose-500'} transition" title="Save to Shortlist">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ${isSaved ? 'fill-rose-500' : 'fill-none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  </button>
+                </div>
+
+                <!-- Candidate Name & Package Pill -->
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 onclick="openDetailModal('${p.id}')" class="font-display text-lg font-extrabold text-slate-900 dark:text-white group-hover:text-orange-500 transition cursor-pointer leading-snug">
+                      ${p.name}
+                    </h3>
+                    <p class="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-0.5 line-clamp-2">
+                      ${p.job}
+                    </p>
+                  </div>
+                  <div class="shrink-0 text-right">
+                    <span class="inline-block px-2.5 py-1 rounded-xl font-mono text-xs font-bold ${isTopPkg ? 'bg-gradient-to-r from-orange-500/20 to-amber-500/20 text-orange-600 dark:text-orange-300 border border-orange-500/30' : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'}">
+                      ${p.pkgText || 'Scale Pay'}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Education & Premier Tags -->
+                <div class="mt-3 flex flex-wrap items-center gap-1.5">
+                  <span class="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/[0.06] truncate max-w-full">
+                    🎓 ${p.edu}
+                  </span>
+                  ${premierTags.map(t => `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold border ${t.cls}">${t.label}</span>`).join("")}
+                </div>
+
+                <!-- 3-Column Bento Micro-Grid -->
+                <div class="grid grid-cols-3 gap-2 mt-4 p-2.5 rounded-2xl bg-slate-50/90 dark:bg-obsidian-950/60 border border-slate-200/60 dark:border-white/[0.05] text-xs">
+                  <div>
+                    <span class="text-[10px] font-mono uppercase text-slate-400 block">Gotra</span>
+                    <span class="font-bold text-slate-800 dark:text-slate-200 truncate block mt-0.5">${p.gotra || '—'}</span>
+                  </div>
+                  <div class="border-x border-slate-200/70 dark:border-white/[0.06] px-2">
+                    <span class="text-[10px] font-mono uppercase text-slate-400 block">DOB / Year</span>
+                    <span class="font-mono font-bold text-slate-800 dark:text-slate-200 truncate block mt-0.5">${p.dob || '—'}</span>
+                  </div>
+                  <div class="pl-1">
+                    <span class="text-[10px] font-mono uppercase text-slate-400 block">Height</span>
+                    <span class="font-mono font-bold text-slate-800 dark:text-slate-200 truncate block mt-0.5">${p.ht || '—'}</span>
+                  </div>
+                </div>
+
+                <!-- Family & Native Preview -->
+                <div class="mt-3.5 space-y-1 text-xs text-slate-500 dark:text-slate-400">
+                  <p class="truncate"><span class="font-semibold text-slate-700 dark:text-slate-300">Family:</span> ${p.father || '—'}</p>
+                  <p class="truncate"><span class="font-semibold text-slate-700 dark:text-slate-300">Native/Res:</span> ${p.location || '—'}</p>
+                </div>
+              </div>
+
+              <!-- Action Footer -->
+              <div class="mt-4 pt-3.5 border-t border-slate-200/70 dark:border-white/[0.06] flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5">
+                  ${primaryPhone ? `
+                    <a href="tel:${primaryPhone}" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.06] dark:hover:bg-white/[0.12] text-slate-800 dark:text-slate-200 font-mono text-xs font-semibold transition" title="Call ${primaryPhone}">
+                      📞 ${primaryPhone}
+                    </a>
+                    <a href="https://wa.me/91${primaryPhone.replace(/\D/g,'')}?text=${waText}" target="_blank" rel="noopener noreferrer" class="p-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-500 border border-emerald-500/20 transition" title="WhatsApp Inquiry">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></svg>
+                    </a>
+                  ` : ''}
+                </div>
+
+                <button onclick="openDetailModal('${p.id}')" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-orange-500 dark:hover:bg-orange-500 dark:hover:text-white text-xs font-bold transition">
+                  <span>Full Bio</span>
+                  <span>→</span>
+                </button>
+              </div>
+
+            </div>
+          `;
+        }).join("");
+
+      } else {
+        gridContainer.classList.add("hidden");
+        tableContainer.classList.remove("hidden");
+
+        tableBody.innerHTML = filteredProfiles.map(p => {
+          const primaryPhone = p.phones && p.phones.length > 0 ? p.phones[0] : "";
+          const isSaved = shortlistedIds.has(p.id);
+          return `
+            <tr class="hover:bg-slate-100/60 dark:hover:bg-white/[0.03] transition">
+              <td class="py-3.5 px-4">
+                <div class="flex items-center gap-2">
+                  <button onclick="toggleShortlist('${p.id}', event)" class="text-slate-400 hover:text-rose-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ${isSaved ? 'fill-rose-500 text-rose-500' : 'fill-none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                  </button>
+                  <div>
+                    <span class="text-[10px] font-mono text-slate-400 block">#${p.id}</span>
+                    <button onclick="openDetailModal('${p.id}')" class="font-display font-bold text-slate-900 dark:text-white hover:text-orange-500 text-left">
+                      ${p.name}
+                    </button>
+                  </div>
+                </div>
+              </td>
+              <td class="py-3.5 px-4">
+                ${getSectorBadge(p.sector)}
+                <p class="text-xs font-semibold text-slate-700 dark:text-slate-300 mt-1 max-w-xs truncate">${p.job}</p>
+              </td>
+              <td class="py-3.5 px-4 text-xs text-slate-600 dark:text-slate-300 max-w-xs">
+                ${p.edu}
+              </td>
+              <td class="py-3.5 px-4">
+                <span class="px-2.5 py-1 rounded-lg font-mono text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                  ${p.pkgText || 'Scale Pay'}
+                </span>
+              </td>
+              <td class="py-3.5 px-4 text-xs font-mono">
+                <div class="font-sans font-bold text-slate-800 dark:text-slate-200">${p.gotra}</div>
+                <div class="text-slate-400">${p.dob} • ${p.ht}</div>
+              </td>
+              <td class="py-3.5 px-4 text-xs text-slate-500 dark:text-slate-400 max-w-xs">
+                <div class="text-slate-800 dark:text-slate-200 font-medium truncate">${p.location}</div>
+                <div class="truncate">${p.father}</div>
+              </td>
+              <td class="py-3.5 px-4 text-right whitespace-nowrap">
+                ${primaryPhone ? `<a href="tel:${primaryPhone}" class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/[0.06] font-mono text-xs font-semibold mr-1.5">📞 ${primaryPhone}</a>` : ''}
+                <button onclick="openDetailModal('${p.id}')" class="px-3 py-1 rounded-lg bg-orange-500 text-white text-xs font-bold">Bio</button>
+              </td>
+            </tr>
+          `;
+        }).join("");
+      }
+    }
+
+    // Shortlist / Favorites Management
+    function toggleShortlist(id, event) {
+      if (event) event.stopPropagation();
+      if (shortlistedIds.has(id)) {
+        shortlistedIds.delete(id);
+        showToast("Removed from Shortlist");
+      } else {
+        shortlistedIds.add(id);
+        showToast("Saved to Shortlist ❤️");
+      }
+      try {
+        localStorage.setItem("brahmarshi_shortlist_2027", JSON.stringify([...shortlistedIds]));
+      } catch (e) {}
+      updateShortlistUI();
+      renderResults();
+    }
+
+    function updateShortlistUI() {
+      document.getElementById("navShortlistCount").textContent = shortlistedIds.size;
+      const container = document.getElementById("shortlistContainer");
+      const savedProfiles = profiles.filter(p => shortlistedIds.has(p.id));
+
+      if (savedProfiles.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12 text-slate-400">
+            <p class="text-sm font-semibold">No profiles shortlisted yet</p>
+            <p class="text-xs mt-1">Click the heart icon on any profile card to save it here for family review.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = savedProfiles.map(p => `
+        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] flex items-center justify-between gap-3">
+          <div onclick="openDetailModal('${p.id}')" class="cursor-pointer flex-1 min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-mono text-orange-500 font-bold">#${p.id}</span>
+              <h4 class="font-display font-bold text-sm text-slate-900 dark:text-white truncate">${p.name}</h4>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">${p.job} • ${p.pkgText || 'Scale'}</p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Gotra: ${p.gotra} • Mob: ${(p.phones || [])[0] || '—'}</p>
+          </div>
+          <button onclick="toggleShortlist('${p.id}', event)" class="p-1.5 text-slate-400 hover:text-rose-500">
+            ✕
+          </button>
+        </div>
+      `).join("");
+    }
+
+    function toggleShortlistDrawer() {
+      document.getElementById("shortlistDrawer").classList.toggle("hidden");
+    }
+
+    function clearShortlist() {
+      shortlistedIds.clear();
+      try { localStorage.removeItem("brahmarshi_shortlist_2027"); } catch (e) {}
+      updateShortlistUI();
+      if (onlyShortlistedMode) resetAllFilters();
+      else renderResults();
+      showToast("Cleared Shortlist");
+    }
+
+    function filterByShortlist() {
+      toggleShortlistDrawer();
+      if (shortlistedIds.size === 0) {
+        showToast("Shortlist is empty!");
+        return;
+      }
+      onlyShortlistedMode = true;
+      document.getElementById("activeFilterLabel").textContent = `Showing ${shortlistedIds.size} Shortlisted Profiles`;
+      applyFilters();
+    }
+
+    function setViewMode(mode) {
+      currentView = mode;
+      const gridBtn = document.getElementById("gridViewBtn");
+      const tableBtn = document.getElementById("tableViewBtn");
+      if (mode === "grid") {
+        gridBtn.className = "p-1.5 rounded-lg bg-white dark:bg-slate-800 text-orange-500 shadow-xs transition";
+        tableBtn.className = "p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white transition";
+      } else {
+        tableBtn.className = "p-1.5 rounded-lg bg-white dark:bg-slate-800 text-orange-500 shadow-xs transition";
+        gridBtn.className = "p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white transition";
+      }
+      renderResults();
+    }
+
+    // Detail Modal
+    function openDetailModal(id) {
+      const p = profiles.find(item => item.id === id);
+      if (!p) return;
+
+      document.getElementById("modalBadges").innerHTML = `
+        <span class="px-2.5 py-0.5 rounded-md text-xs font-mono font-bold bg-white/10 text-orange-300">#${p.id}</span>
+        ${getSectorBadge(p.sector)}
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 text-slate-200">${p.category}</span>
+      `;
+      document.getElementById("modalName").textContent = p.name;
+      document.getElementById("modalRole").textContent = p.job;
+      document.getElementById("modalPkg").textContent = p.pkgText || "Govt / Standard Scale";
+      document.getElementById("modalGotra").textContent = p.gotra || "—";
+      document.getElementById("modalDob").textContent = p.dob || "—";
+      document.getElementById("modalHeight").textContent = p.ht || "—";
+      document.getElementById("modalEdu").textContent = p.edu || "—";
+      document.getElementById("modalJob").textContent = p.job || "—";
+      document.getElementById("modalFather").textContent = p.father || "—";
+      document.getElementById("modalLocation").textContent = p.location || "—";
+
+      const waText = encodeURIComponent(`Namaskar, we came across the profile of ${p.name} (#${p.id}) in the Brahmarshi Samaj Patrika 2027 and wanted to connect regarding marriage proposal.`);
+
+      document.getElementById("modalPhones").innerHTML = (p.phones || []).map(ph => `
+        <a href="tel:${ph}" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-mono font-bold text-xs">
+          📞 ${ph}
+        </a>
+        <a href="https://wa.me/91${ph.replace(/\D/g,'')}?text=${waText}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-500 text-white font-semibold text-xs">
+          WhatsApp
+        </a>
+        <button onclick="copyText('${ph}', 'Copied ${ph}')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.06] text-slate-600 dark:text-slate-300 text-xs font-medium">
+          Copy
+        </button>
+      `).join("");
+
+      const fullSummary = `[#${p.id}] ${p.name} | Education: ${p.edu} | Career: ${p.job} | Package: ${p.pkgText || 'Scale'} | Gotra: ${p.gotra} | DOB: ${p.dob} | Height: ${p.ht} | Family: ${p.father} | Location: ${p.location} | Contact: ${(p.phones || []).join(", ")}`;
+      document.getElementById("modalRaw").textContent = fullSummary;
+
+      document.getElementById("modalCopyBtn").onclick = () => copyText(fullSummary, "Full biodata copied to clipboard!");
+      document.getElementById("modalShortlistBtn").onclick = (e) => toggleShortlist(p.id, e);
+
+      document.getElementById("detailModal").classList.remove("hidden");
+    }
+
+    function closeDetailModal() {
+      document.getElementById("detailModal").classList.add("hidden");
+    }
+
+    // Smart Raw Text Parser & Add Profile Modal
+    function openAddModal() {
+      document.getElementById("addModal").classList.remove("hidden");
+    }
+    function closeAddModal() {
+      document.getElementById("addModal").classList.add("hidden");
+    }
+
+    function parseRawBioText() {
+      const raw = document.getElementById("rawPasteInput").value.trim();
+      if (!raw) {
+        showToast("Please paste a line from the PDF first");
+        return;
+      }
+      // Extract phone numbers
+      const phones = raw.match(/\b[6-9]\d{9}\b/g) || [];
+      if (phones.length) document.getElementById("new_phone").value = phones.join(", ");
+
+      // Extract LPA package
+      const pkgMatch = raw.match(/(\d+(?:\.\d+)?)\s*(?:LPA|PLA|Lakh)/i);
+      if (pkgMatch) document.getElementById("new_pkg").value = pkgMatch[1];
+
+      // Extract Gotra
+      const gotraMatch = raw.match(/Gotra\s*[-:]?\s*([A-Za-z]+)/i);
+      if (gotraMatch) document.getElementById("new_gotra").value = gotraMatch[1];
+
+      // Extract Height
+      const htMatch = raw.match(/Ht\s*[-:.]?\s*(\d'\s*\d{0,2}"?)/i);
+      if (htMatch) document.getElementById("new_ht").value = htMatch[1];
+
+      // Extract DOB
+      const dobMatch = raw.match(/DOB\s*[-:.]?\s*([A-Za-z0-9.\s]+?)(?:,|Ht|Gotra|S\/o|Mob)/i);
+      if (dobMatch) document.getElementById("new_dob").value = dobMatch[1].trim();
+
+      showToast("Extracted fields from raw text!");
+    }
+
+    function handleAddProfile(e) {
+      e.preventDefault();
+      const name = document.getElementById("new_name").value.trim();
+      const sector = document.getElementById("new_sector").value;
+      const category = document.getElementById("new_category").value;
+      const pkgInput = document.getElementById("new_pkg").value.trim();
+      const edu = document.getElementById("new_edu").value.trim();
+      const job = document.getElementById("new_job").value.trim();
+      const gotra = document.getElementById("new_gotra").value.trim();
+      const dob = document.getElementById("new_dob").value.trim() || "—";
+      const ht = document.getElementById("new_ht").value.trim() || "—";
+      const father = document.getElementById("new_father").value.trim() || "—";
+      const location = document.getElementById("new_loc").value.trim();
+      const phoneStr = document.getElementById("new_phone").value.trim();
+
+      const pkgLpa = pkgInput ? parseFloat(pkgInput) : null;
+      const pkgText = pkgLpa ? `₹${pkgLpa} LPA` : "Scale Pay";
+      const phones = phoneStr.split(/[,/\s]+/).filter(Boolean);
+
+      const newProfile = {
+        id: "NEW-" + Math.floor(100 + Math.random() * 900),
+        name, category, sector, edu, job, pkgLpa, pkgText, gotra, dob,
+        birthYear: 1996, ht, heightInches: parseHeightInches(ht), father, location, phones
+      };
+
+      profiles.unshift(newProfile);
+      try {
+        const savedCustom = localStorage.getItem("brahmarshi_custom_profiles_2027");
+        const customList = savedCustom ? JSON.parse(savedCustom) : [];
+        customList.unshift(newProfile);
+        localStorage.setItem("brahmarshi_custom_profiles_2027", JSON.stringify(customList));
+      } catch (err) {}
+
+      populateGotraDropdown();
+      updateDashboardStats();
+      applyFilters();
+      closeAddModal();
+      document.getElementById("addProfileForm").reset();
+      showToast(`Added ${name} to directory!`);
+    }
+
+    function copyText(text, message) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy");
+        showToast(message || "Copied!");
+      } catch (err) {}
+      document.body.removeChild(textarea);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toastMsg").textContent = msg;
+      toast.classList.remove("hidden", "translate-y-4", "opacity-0");
+      setTimeout(() => {
+        toast.classList.add("translate-y-4", "opacity-0");
+        setTimeout(() => toast.classList.add("hidden"), 300);
+      }, 2400);
+    }
+
+    function exportCSV() {
+      const headers = ["ID", "Name", "Sector", "Category", "Education", "Job", "Package", "Gotra", "DOB", "Height", "Father", "Location", "Phones"];
+      const rows = filteredProfiles.map(p => [
+        p.id, p.name, p.sector, p.category, p.edu, p.job, p.pkgText || "", p.gotra || "", p.dob || "", p.ht || "", p.father || "", p.location || "", (p.phones || []).join(" / ")
+      ]);
+      const csvContent = [headers, ...rows].map(r => r.map(c => `"${String(c).replace(/"/g, '""')}"`).join(",")).join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `Brahmarshi_Patrika_2027_${filteredProfiles.length}_Profiles.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(`Exported ${filteredProfiles.length} profiles to CSV!`);
+    }
+
+    function downloadStandaloneHTML() {
+      const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "index.html";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("Downloaded index.html for GitHub Pages!");
+    }
+
+    // Keyboard shortcuts ('/' to focus search, 'Esc' to close modals)
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+        e.preventDefault();
+        document.getElementById("searchInput").focus();
+      } else if (e.key === "Escape") {
+        closeDetailModal();
+        closeAddModal();
+        document.getElementById("shortlistDrawer").classList.add("hidden");
+      }
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      initDatabase();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
